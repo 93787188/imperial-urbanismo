@@ -1,0 +1,66 @@
+# ============================================
+# Imperial Urbanismo — configuração Apache
+# ============================================
+
+# Desliga a negociação de conteúdo do Apache.
+# Sem isso, o MultiViews atrapalha as regras de URL limpa abaixo.
+Options -MultiViews
+Options -Indexes
+
+RewriteEngine On
+
+# --- URLs limpas ---------------------------
+
+# /index.html  ->  /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# /pagina.html  ->  /pagina   (301, evita conteúdo duplicado no Google)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Internamente, /pagina serve o arquivo /pagina.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# --- Compressão ----------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Cache de assets -----------------------
+# As imagens são 24 MB: sem isso o visitante rebaixa tudo a cada visita.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg        "access plus 1 year"
+  ExpiresByType image/png         "access plus 1 year"
+  ExpiresByType image/webp        "access plus 1 year"
+  ExpiresByType image/svg+xml     "access plus 1 year"
+  ExpiresByType text/css          "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html         "access plus 0 seconds"
+</IfModule>
+
+# --- Segurança básica ----------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ============================================
+# NÃO ATIVAR AINDA — ver notas no chat
+# ============================================
+# HTTPS e www: a Stay Cloud provavelmente já redireciona.
+# Duplicar a regra causa loop de redirecionamento.
+# Só descomente depois de confirmar que o painel NÃO faz isso.
+#
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# Página de erro — criar 404.html antes de ativar:
+# ErrorDocument 404 /404.html
