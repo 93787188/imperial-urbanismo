@@ -1,0 +1,211 @@
+/* =========================================================
+   ACOMPANHAMENTO DE OBRAS — Figma 285:2457
+   Nav, hero (faixa + card), CTA, newsletter e footer vêm de site.css.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   BLOCO 1 — Hero: texto à esquerda, painel de medição à direita
+   --------------------------------------------------------- */
+.ob-hero .hero__card{
+  aspect-ratio:auto;
+  min-height:min(640px, calc(100svh - var(--nav-h) - 70px));
+  justify-content:center;
+  background:var(--dark);
+}
+.ob-hero .hero__bg img{ opacity:.07; }
+.ob-hero .hero__in{ max-width:1570px; }
+.ob-hero__grid{
+  display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(36px,4.6vw,84px);
+  align-items:center; width:100%;
+}
+.ob-hero__eyebrow{
+  display:flex; align-items:center; gap:11px; margin-bottom:16px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:500; color:rgba(246,243,232,.68);
+}
+.ob-hero__eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.ob-hero h1{
+  font-size:clamp(34px,4.2vw,80px); font-weight:300; line-height:1.03;
+  letter-spacing:-.038em; color:var(--cream); max-width:none;
+  margin-bottom:clamp(20px,2vw,32px);
+}
+.ob-hero h1 em{ font-style:italic; font-weight:200; color:rgba(246,243,232,.74); }
+.ob-hero__lead{
+  font-size:var(--fs-body-xs); line-height:1.72;
+  color:rgba(246,243,232,.76); max-width:62ch;
+}
+
+/* painel de medição */
+.ob-panel{
+  border:1px solid rgba(246,243,232,.18); border-radius:14px;
+  padding:clamp(20px,1.9vw,30px);
+  background:rgba(15,15,16,.26);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.ob-panel__head{
+  font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(246,243,232,.55); padding-bottom:14px;
+  border-bottom:1px solid rgba(246,243,232,.16);
+}
+.ob-panel__row{ padding-block:clamp(14px,1.3vw,20px); border-bottom:1px solid rgba(246,243,232,.12); }
+.ob-panel__row:last-child{ border-bottom:0; padding-bottom:0; }
+.ob-panel__top{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+.ob-panel__top b{ font-size:16px; font-weight:500; color:var(--cream); letter-spacing:-.01em; }
+.ob-panel__top span{
+  font-size:18px; font-weight:600; color:var(--cream);
+  font-variant-numeric:tabular-nums; letter-spacing:-.02em;
+}
+.ob-panel__st{
+  display:block; margin-top:9px;
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(246,243,232,.5);
+}
+.ob-panel__bar{
+  /* é um <span>: sem display:block a trilha fica com largura 0
+     e a barra interna (width em %) nunca aparece */
+  display:block;
+  margin-top:11px; height:3px; border-radius:100px;
+  background:rgba(246,243,232,.16); overflow:hidden;
+}
+.ob-panel__bar i{
+  display:block; height:100%; width:0; border-radius:100px;
+  background:var(--cream); transition:width 1.4s var(--ease);
+}
+
+/* ---------------------------------------------------------
+   BLOCO 2 — Obras (linhas alternadas: foto / conteúdo)
+   --------------------------------------------------------- */
+.ob-lista{ background:var(--cream); padding-block:clamp(52px,5.2vw,100px); }
+.ob-row{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,72px);
+  align-items:center;
+}
+.ob-row + .ob-row{ margin-top:clamp(48px,5vw,92px); }
+.ob-row--flip .ob-row__media{ order:2; }
+.ob-row__media{ border-radius:12px; overflow:hidden; aspect-ratio:490/440; background:var(--dark-2); }
+.ob-row__media img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .9s var(--ease);
+}
+.ob-row:hover .ob-row__media img{ transform:scale(1.04); }
+
+.ob-row__tag{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px; flex-wrap:wrap; margin-bottom:16px;
+}
+.ob-row__n{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.12em;
+  color:rgba(60,63,46,.5);
+}
+.ob-row__badge{
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid rgba(60,63,46,.28); border-radius:100px;
+  padding:6px 13px;
+  font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dark);
+}
+.ob-row__badge i{ width:5px; height:5px; border-radius:50%; background:currentColor; }
+.ob-row h2{
+  font-family:var(--font-head); font-weight:400; color:var(--dark);
+  font-size:clamp(26px,2.55vw,44px); letter-spacing:-.035em; line-height:1.1;
+}
+.ob-row__loc{
+  display:flex; align-items:center; gap:8px; margin-top:12px;
+  font-size:13px; color:rgba(60,63,46,.68);
+}
+.ob-row__loc svg{ flex:0 0 auto; }
+.ob-row__p{
+  font-size:var(--fs-body-xs); line-height:1.7;
+  color:rgba(60,63,46,.82); margin-top:clamp(18px,1.7vw,26px);
+}
+.ob-row__foot{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:18px; flex-wrap:wrap;
+  margin-top:clamp(20px,2vw,32px); padding-top:18px;
+  border-top:1px solid rgba(60,63,46,.16);
+}
+.ob-row__upd{ font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:rgba(60,63,46,.55); }
+.ob-row__go{
+  display:inline-flex; align-items:center; gap:9px;
+  font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dark);
+}
+.ob-row__go i{ display:block; width:22px; height:1px; background:currentColor; transition:width .35s var(--ease); }
+.ob-row__go:hover i{ width:38px; }
+
+/* medidor grande de evolução */
+.ob-evo{
+  margin-top:clamp(20px,2vw,30px); padding-top:18px;
+  border-top:1px solid rgba(60,63,46,.16);
+}
+.ob-evo__top{ display:flex; justify-content:space-between; align-items:flex-end; gap:16px; }
+.ob-evo__lab{
+  font-size:11px; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+  color:rgba(60,63,46,.62);
+}
+.ob-evo__n{
+  font-family:var(--font-head); font-weight:300; color:var(--dark);
+  font-size:clamp(34px,3.1vw,52px); line-height:1; letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+}
+.ob-evo__n sup{ font-size:.42em; font-weight:400; vertical-align:baseline; position:relative; top:-.9em; margin-left:3px; }
+.ob-evo__bar{
+  display:block;
+  margin-top:14px; height:3px; border-radius:100px;
+  background:rgba(60,63,46,.16); overflow:hidden;
+}
+.ob-evo__bar i{
+  display:block; height:100%; width:0; border-radius:100px;
+  background:var(--dark); transition:width 1.4s var(--ease);
+}
+
+/* ---------------------------------------------------------
+   BLOCO 3 — Nosso compromisso (faixa escura)
+   --------------------------------------------------------- */
+.ob-comp{ background:var(--dark); padding-block:clamp(52px,5.2vw,96px); }
+.ob-comp__grid{
+  display:grid; grid-template-columns:1fr 1.14fr; gap:clamp(34px,4.4vw,80px);
+}
+.ob-comp__eyebrow{
+  display:flex; align-items:center; gap:11px; margin-bottom:16px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:500; color:rgba(246,243,232,.68);
+}
+.ob-comp__eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.ob-comp h2{
+  font-family:var(--font-head); font-weight:400; color:var(--cream);
+  font-size:clamp(28px,3.4vw,60px); letter-spacing:-.035em; line-height:1.06;
+}
+.ob-comp h2 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.72); }
+.ob-comp__p{
+  font-size:var(--fs-body-xs); line-height:1.7;
+  color:rgba(246,243,232,.76); margin-top:clamp(20px,2vw,30px); max-width:48ch;
+}
+.ob-comp__btns{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-top:clamp(24px,2.4vw,36px); }
+
+.ob-item{
+  display:grid; grid-template-columns:44px 1fr; gap:16px;
+  padding-block:clamp(18px,1.7vw,26px);
+  border-bottom:1px solid rgba(246,243,232,.14);
+}
+.ob-item:first-child{ padding-top:0; }
+.ob-item:last-child{ border-bottom:0; }
+.ob-item__n{ font-family:var(--font-mono); font-size:11px; color:rgba(246,243,232,.42); padding-top:5px; }
+.ob-item h3{
+  font-family:var(--font-head); font-weight:500; color:var(--cream);
+  font-size:clamp(18px,1.28vw,20px); letter-spacing:-.02em; line-height:1.25;
+}
+.ob-item p{ font-size:14px; line-height:1.68; color:rgba(246,243,232,.7); margin-top:10px; }
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+   --------------------------------------------------------- */
+@media (max-width:1024px){
+  .ob-hero__grid{ grid-template-columns:1fr; gap:34px; }
+  .ob-row{ grid-template-columns:1fr; gap:26px; }
+  .ob-row--flip .ob-row__media{ order:0; }
+  .ob-comp__grid{ grid-template-columns:1fr; gap:34px; }
+}
+@media (max-width:620px){
+  .ob-comp__btns .btn{ width:100%; justify-content:center; }
+}

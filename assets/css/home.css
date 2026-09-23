@@ -1,0 +1,222 @@
+/* =========================================================
+   HOME — Imperial Urbanismo
+   Complementa site.css (tokens, botões, reveal, wa).
+   Fiel ao Figma: node 285:605 (canvas 1920).
+   ========================================================= */
+
+:root{
+  --olive-bg:  #3C3F2E;   /* seção Nossa Trajetória (verde oliva) */
+  --foot-bg:   #1F1F1F;
+}
+
+/* ---------------------------------------------------------
+   HERO — header FORA do card, na faixa escura (Figma 285:611)
+   faixa 1920x922 · header 1542x49 · gap 35 · card 1780x838
+   --------------------------------------------------------- */
+/* mesmo cálculo do .hero: o nav mede 92px mas seu conteúdo termina por
+   volta dos 65px, então 100px deixa os 35px do Figma até o card */
+.hhero{ background:var(--dark); padding:calc(var(--nav-h) + 8px) clamp(14px,3.646%,70px) 0; }
+
+
+.hhero__card{
+  position:relative; overflow:hidden; border-radius:16px;
+  margin:0;
+  width:100%; aspect-ratio:1780/838; min-height:560px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:0 clamp(18px,2.4vw,46px) clamp(20px,2.7vw,36px);
+  background:var(--paper);
+}
+.hhero__bg{ position:absolute; inset:0; z-index:0; }
+.hhero__bg img{ width:100%; height:100%; object-fit:cover; }
+
+/* gradiente OFF-WHITE sobre a foto — stops convertidos do gradientTransform
+   do Figma: transparente até 25,6% e creme sólido a partir de 68,9% */
+.hhero__grad{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to bottom,
+    rgba(246,243,232,0)    25.6%,
+    rgba(246,243,232,.13)  34.3%,
+    rgba(246,243,232,.38)  45.1%,
+    rgba(246,243,232,.75)  55.0%,
+    rgba(246,243,232,1)    68.9%);
+}
+
+/* bloco de texto: 836px, centralizado, cor verde oliva */
+.hhero__in{
+  position:relative; z-index:2; max-width:836px;
+  margin:0 auto clamp(18px,2.6vw,30px); text-align:center;
+}
+.hhero h1{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(26px,3.125vw,60px); letter-spacing:-.03em; line-height:1.16;
+  color:var(--dark); margin-bottom:clamp(14px,1.5vw,26px);
+}
+.hhero h1 strong{ font-weight:700; }
+.hhero__lead{
+  font-size:var(--fs-body); line-height:1.62;
+  color:var(--dark); margin-bottom:clamp(12px,1.2vw,22px);
+}
+.hhero__lead strong{ font-weight:700; }
+.hhero__tag{
+  font-size:var(--fs-body); color:var(--dark);
+  margin-bottom:clamp(16px,1.7vw,30px);
+}
+.hhero__btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.hhero .btn--ghost{ border-color:rgba(60,63,46,.42); color:var(--dark); }
+.hhero .btn--ghost:hover{ border-color:var(--dark); background:rgba(60,63,46,.06); }
+
+.hhero__foot{
+  position:relative; z-index:2;
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  font-size:clamp(10px,.72vw,14px); letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(60,63,46,.78);
+}
+
+/* ---------------------------------------------------------
+   Cabeçalho de seção
+   --------------------------------------------------------- */
+.shead{ max-width:1002px; margin-bottom:clamp(36px,4.6vw,58px); }
+.shead__eyebrow{ display:flex; align-items:center; gap:11px; margin-bottom:18px; }
+.shead__eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.shead__eyebrow span{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; }
+.shead h2{
+  font-family:var(--font-head); font-weight:400; letter-spacing:-.03em; line-height:1.14;
+  font-size:clamp(26px,3.4vw,40px);
+}
+.shead p{ font-size:var(--fs-body); line-height:1.7; margin-top:18px; max-width:68ch; }
+.shead--light{ color:var(--cream); }
+.shead--light .shead__eyebrow span{ color:rgba(246,243,232,.7); }
+.shead--light p{ color:rgba(246,243,232,.8); }
+.shead--dark .shead__eyebrow span{ color:var(--olive); }
+.shead--dark h2{ color:var(--dark); }
+.shead--dark p{ color:rgba(60,63,46,.84); }
+
+/* ---------------------------------------------------------
+   B2 — Pilares
+   --------------------------------------------------------- */
+.pilares{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.pilar{
+  background:var(--cream); border-radius:10px; padding:clamp(24px,2.4vw,32px);
+  display:flex; flex-direction:column; gap:14px;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.pilar:hover{ transform:translateY(-5px); box-shadow:0 22px 48px -26px rgba(15,15,16,.5); }
+.pilar__ico{
+  width:40px; height:40px; border-radius:6px; background:var(--dark);
+  display:grid; place-items:center; color:var(--cream);
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+}
+.pilar h3{ font-family:var(--font-head); font-weight:500; font-size:clamp(17px,1.7vw,20px); letter-spacing:-.02em; color:var(--dark); }
+.pilar p{ font-size:var(--fs-body); line-height:1.68; color:rgba(60,63,46,.82); }
+
+/* ---------------------------------------------------------
+   B3 — Cards de empreendimento
+   --------------------------------------------------------- */
+.projgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:42px; }
+.projgrid__cta{ text-align:center; }
+.projcard{
+  background:var(--cream-deep); border-radius:10px; overflow:hidden;
+  display:flex; flex-direction:column;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.projcard:hover{ transform:translateY(-6px); box-shadow:0 26px 54px -28px rgba(60,63,46,.45); }
+.projcard__ph{ position:relative; aspect-ratio:548/240; overflow:hidden; }
+.projcard__ph img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
+.projcard:hover .projcard__ph img{ transform:scale(1.06); }
+.projcard__badge{
+  position:absolute; top:14px; left:14px; z-index:2;
+  height:26px; padding-inline:11px; display:inline-flex; align-items:center;
+  border-radius:4px; background:rgba(15,15,16,.72); backdrop-filter:blur(6px);
+  font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cream);
+}
+.projcard__badge--ok{ background:rgba(82,86,66,.9); }
+.projcard__body{ padding:clamp(20px,2.2vw,26px); display:flex; flex-direction:column; gap:9px; flex:1; }
+.projcard__tipo{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--olive); font-weight:500; }
+.projcard h3{ font-family:var(--font-head); font-weight:500; font-size:clamp(17px,1.8vw,20px); letter-spacing:-.02em; color:var(--dark); }
+.projcard__loc{ font-size:var(--fs-body-xs); letter-spacing:.1em; color:rgba(82,86,66,.8); }
+.projcard__link{
+  margin-top:auto; padding-top:14px; display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--dark);
+}
+.projcard__link svg{ transition:transform var(--dur) var(--ease); }
+.projcard:hover .projcard__link svg{ transform:translateX(5px); }
+
+/* ---------------------------------------------------------
+   B4 — Nossa Trajetória
+   --------------------------------------------------------- */
+.traj{ background:var(--olive-bg); color:var(--cream); }
+.traj__grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+.traj__fotos{ display:grid; gap:16px; }
+.traj__fotos figure{ border-radius:10px; overflow:hidden; }
+.traj__fotos img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .9s var(--ease); }
+.traj__fotos figure:hover img{ transform:scale(1.05); }
+.traj h2{ font-family:var(--font-head); font-weight:400; font-size:clamp(26px,3.5vw,42px); letter-spacing:-.03em; line-height:1.14; }
+.traj__lead{ font-size:var(--fs-body); line-height:1.78; color:rgba(246,243,232,.8); margin-top:18px; }
+.stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:34px; background:rgba(246,243,232,.16); border-radius:8px; overflow:hidden; }
+.stat{ background:var(--olive-bg); padding:22px clamp(14px,1.6vw,22px); }
+.stat__n{
+  font-family:var(--font-head); font-weight:300; font-size:clamp(28px,3.4vw,42px);
+  letter-spacing:-.03em; line-height:1; color:var(--cream); display:flex; align-items:baseline; gap:6px;
+  /* largura fixa por dígito: evita o número tremer durante a contagem */
+  font-variant-numeric:tabular-nums;
+}
+.stat__n small{ font-family:var(--font-body); font-weight:400; font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:.62; }
+.stat__l{ margin-top:9px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; line-height:1.5; color:rgba(246,243,232,.62); }
+
+/* ---------------------------------------------------------
+   B5 — Acompanhamento de obras
+   --------------------------------------------------------- */
+.obras__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,94px); align-items:start; }
+.obras__intro{ position:sticky; top:30px; }
+.obracard{
+  background:var(--paper); border-radius:10px; padding:clamp(22px,2.4vw,30px);
+  border:1px solid var(--line);
+  box-shadow:0 16px 42px -30px rgba(15,15,16,.4);
+}
+.obracard + .obracard{ margin-top:20px; }
+.obracard__top{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:22px; }
+.obracard__top h3{ font-family:var(--font-head); font-weight:500; font-size:clamp(19px,2vw,26px); letter-spacing:-.025em; color:var(--dark); }
+.obracard__st{
+  height:24px; padding-inline:10px; display:inline-flex; align-items:center; border-radius:4px;
+  background:rgba(82,86,66,.12); color:var(--olive);
+  font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;
+}
+.etapa{ display:grid; grid-template-columns:1fr auto; gap:6px 14px; align-items:center; padding-block:9px; }
+.etapa + .etapa{ border-top:1px solid rgba(82,86,66,.1); }
+.etapa__n{ font-size:var(--fs-body-xs); color:rgba(60,63,46,.88); }
+.etapa__v{ font-size:13px; font-weight:600; color:var(--dark); font-variant-numeric:tabular-nums; }
+.etapa__bar{ grid-column:1/-1; height:3px; border-radius:2px; background:rgba(82,86,66,.14); overflow:hidden; }
+.etapa__bar i{ display:block; height:100%; width:0; border-radius:2px; background:var(--olive); transition:width 1.2s var(--ease); }
+.obracard__total{
+  margin-top:20px; padding-top:18px; border-top:1px solid rgba(82,86,66,.18);
+  display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+}
+.obracard__total dt{ font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--olive); }
+.obracard__total dd{ font-family:var(--font-head); font-weight:400; font-size:clamp(20px,2.2vw,26px); letter-spacing:-.03em; color:var(--dark); }
+.obracard__med{ margin-top:10px; font-size:12px; color:rgba(82,86,66,.66); }
+
+/* ---------------------------------------------------------
+   B6 — CTA final (box 1446px, raio 20) + newsletter (box 1290px)
+   --------------------------------------------------------- */
+/* O footer vive inteiro em site.css — é o mesmo nas 6 páginas.
+   Não duplicar aqui: a cópia antiga divergia nos tamanhos de texto. */
+
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+   --------------------------------------------------------- */
+
+@media (max-width:1024px){
+  .pilares{ grid-template-columns:1fr; }
+  .projgrid{ grid-template-columns:1fr; }
+  .traj__grid{ grid-template-columns:1fr; gap:34px; }
+  .obras__grid{ grid-template-columns:1fr; }
+  .obras__intro{ position:static; }
+  .hfoot__grid{ grid-template-columns:1fr 1fr; }
+  .hhero__card{ aspect-ratio:auto; padding-top:clamp(180px,42vw,340px); }
+}
+@media (max-width:640px){
+  .stats{ grid-template-columns:1fr; }
+  .hfoot__grid{ grid-template-columns:1fr; }
+  .hhero__foot{ justify-content:center; text-align:center; }
+}

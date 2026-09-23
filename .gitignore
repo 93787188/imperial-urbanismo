@@ -1,0 +1,10 @@
+# Config local de sessão/editor
+.claude/
+
+# Lixo de sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Dependências (se um dia houver)
+node_modules/

@@ -1,0 +1,373 @@
+/* =========================================================
+   QUEM SOMOS — Imperial Urbanismo
+   Complementa site.css (nav, hero, CTA, newsletter, footer).
+   Fiel ao Figma: node 285:938 (canvas 1920).
+   Grid: seções com padding 400 → coluna de 1120px.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   HERO — estatísticas do manifesto
+   +40 anos · +900 un. · 20 proj. · 100 %
+   --------------------------------------------------------- */
+/* No Figma a foto do hero está a 9% de opacidade: é textura, não imagem
+   principal. Exportei o asset em opacidade cheia e aplico o esmaecimento
+   aqui, sobre o campo verde — assim o texto respira sem véu pesado. */
+.qs-hero .hero__card{ background:var(--dark); }
+.qs-hero .hero__bg img{ opacity:.20; }
+.qs-hero .hero__scrim{
+  background:linear-gradient(to top,
+    rgba(26,29,20,.62) 0%,
+    rgba(26,29,20,.34) 42%,
+    rgba(28,31,22,.12) 78%,
+    rgba(28,31,22,.30) 100%);
+}
+
+.qs-hero h1{
+  font-size:clamp(34px,4.17vw,80px); font-weight:400; line-height:1.1;
+  letter-spacing:-.03em; color:var(--cream); margin-bottom:clamp(18px,2vw,34px);
+}
+.qs-hero h1 em{
+  font-style:italic; font-weight:300; color:rgba(246,243,232,.72);
+}
+.qs-hero__lead{
+  max-width:56ch; font-size:var(--fs-body); line-height:1.72;
+  color:rgba(246,243,232,.82); margin-bottom:clamp(28px,3.4vw,58px);
+}
+.qs-stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  border-top:1px solid var(--line-d); padding-top:clamp(18px,1.8vw,28px);
+}
+.qs-stat__n{
+  display:flex; align-items:baseline; gap:4px;
+  font-family:var(--font-head); font-weight:300;
+  font-size:clamp(26px,2.08vw,40px); letter-spacing:-.03em; line-height:1;
+  color:var(--cream); font-variant-numeric:tabular-nums;
+}
+.qs-stat__n small{
+  font-family:var(--font-body); font-weight:400;
+  font-size:clamp(11px,.83vw,16px); letter-spacing:0; color:rgba(246,243,232,.62);
+}
+.qs-stat__l{
+  margin-top:8px; font-size:clamp(9px,.57vw,11px); letter-spacing:.16em;
+  text-transform:uppercase; line-height:1.5; color:rgba(246,243,232,.5);
+}
+
+/* ---------------------------------------------------------
+   BLOCO 2 — A Empresa
+   Figma: coluna esquerda 512 · direita 556 · gap 52
+   --------------------------------------------------------- */
+.qs-empresa{ background:var(--cream); padding-block:clamp(56px,4.7vw,90px); }
+.qs-empresa__grid{
+  display:grid; grid-template-columns:512fr 556fr; gap:52px; align-items:start;
+}
+.qs-eyebrow{ display:flex; align-items:center; gap:11px; margin-bottom:18px; }
+.qs-eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.qs-eyebrow span{
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+}
+.qs-empresa h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(28px,2.7vw,52px); letter-spacing:-.03em; line-height:1.14;
+  color:var(--dark); margin-bottom:clamp(20px,2vw,32px);
+}
+.qs-empresa h2 em{ font-style:italic; font-weight:300; color:var(--olive); }
+.qs-empresa__texto{
+  font-size:var(--fs-body); line-height:1.78; color:rgba(60,63,46,.86);
+  margin-bottom:clamp(28px,3vw,48px);
+}
+
+/* lista de dados: rótulo à esquerda, valor à direita */
+.qs-meta{ display:grid; }
+.qs-meta div{
+  display:flex; align-items:baseline; justify-content:space-between; gap:20px;
+  padding-block:clamp(14px,1.3vw,20px); border-top:1px solid var(--line);
+}
+.qs-meta div:last-child{ border-bottom:1px solid var(--line); }
+.qs-meta dt{
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--olive); font-weight:500;
+}
+.qs-meta dd{
+  font-size:var(--fs-body); color:var(--dark); text-align:right;
+}
+
+/* colagem de fotos */
+.qs-colagem{
+  display:grid; grid-template-columns:1.06fr 1fr; grid-template-rows:1fr 1fr;
+  gap:12px; margin-bottom:16px;
+}
+.qs-foto{
+  position:relative; border-radius:10px; overflow:hidden; background:var(--cream-2);
+}
+.qs-foto--alta{ grid-row:span 2; }
+.qs-foto img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .9s var(--ease);
+}
+.qs-foto:hover img{ transform:scale(1.05); }
+.qs-foto figcaption{
+  position:absolute; inset:auto 0 0 0; z-index:2;
+  padding:46px 16px 15px;
+  /* o gradiente simples nascia transparente demais na altura do badge:
+     estas fotos têm céu claro e concreto. Aqui o véu tem um platô atrás
+     das duas linhas e só então dissolve. */
+  background:linear-gradient(to top,
+    rgba(15,15,16,.90) 0%,
+    rgba(15,15,16,.76) 40%,
+    rgba(15,15,16,.36) 72%,
+    rgba(15,15,16,0) 100%);
+}
+.qs-foto__badge{
+  display:block; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(246,243,232,.68); margin-bottom:4px;
+}
+.qs-foto__nome{
+  display:block; font-size:var(--fs-body-sm); color:var(--cream);
+}
+
+/* cards escuros */
+.qs-card{
+  background:var(--dark); border-radius:10px;
+  padding:clamp(20px,1.7vw,26px) clamp(20px,1.5vw,24px);
+}
+.qs-card + .qs-card{ margin-top:16px; }
+.qs-card__l{
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(246,243,232,.5); display:block; margin-bottom:10px;
+}
+.qs-card h3{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(17px,1.15vw,22px); letter-spacing:-.025em; line-height:1.25;
+  color:var(--cream); margin-bottom:10px;
+}
+.qs-card p{
+  font-size:var(--fs-body-sm); line-height:1.65; color:rgba(246,243,232,.62);
+}
+
+/* ---------------------------------------------------------
+   BLOCO 3 — Diferenciais (bento grid)
+   Figma: 741|499 na 1ª linha, 363|363|499 na 2ª, gap 16
+   --------------------------------------------------------- */
+.qs-dif{ background:var(--dark); padding-block:clamp(56px,4.7vw,90px); color:var(--cream); }
+.qs-dif__head{
+  display:grid; grid-template-columns:1fr auto; gap:40px; align-items:end;
+  margin-bottom:clamp(34px,3.3vw,64px);
+}
+.qs-dif__head h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(28px,2.7vw,52px); letter-spacing:-.03em; line-height:1.14;
+  color:var(--cream); margin-bottom:18px;
+}
+.qs-dif__head h2 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.62); }
+.qs-dif__lead{
+  font-size:var(--fs-body); line-height:1.7;
+  color:rgba(246,243,232,.68); max-width:46ch;
+}
+.qs-dif__nota{ text-align:right; }
+.qs-dif__nota span{
+  display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em;
+  color:rgba(246,243,232,.45); margin-bottom:8px;
+}
+.qs-dif__nota strong{
+  font-family:var(--font-body); font-weight:700;
+  font-size:clamp(13px,.94vw,18px); color:var(--cream);
+}
+
+/* No Figma o cabeçalho tem 1120 e a grade extrapola para 1256 (68px de
+   cada lado). Com a coluna padrão de 1040 tudo espremia: as linhas
+   cresciam de 496/319 para 570/422 porque o texto quebrava mais. */
+.qs-dif .wrap{ max-width:1200px; }
+.bento{
+  display:grid; grid-template-columns:363fr 363fr 499fr;
+  grid-template-rows:496px 319px; gap:16px;
+  width:min(1256px, calc(100vw - 2 * var(--pad)));
+  margin-inline:calc((100% - min(1256px, calc(100vw - 2 * var(--pad)))) / 2);
+}
+.bento__c{
+  background:var(--cream); border-radius:12px; overflow:hidden;
+  padding:clamp(22px,1.9vw,32px);
+  display:flex; flex-direction:column;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.bento__c:hover{ transform:translateY(-4px); box-shadow:0 24px 50px -28px rgba(15,15,16,.55); }
+.bento__c--w{ grid-column:span 2; }
+.bento__c .bento__num{
+  font-family:var(--font-mono); font-size:11px; line-height:17px; letter-spacing:.1em;
+  color:rgba(82,86,66,.62); margin-bottom:12px;
+}
+.bento__c h3{
+  font-family:var(--font-head); font-weight:400; letter-spacing:-.03em;
+  color:var(--dark); margin-bottom:12px;
+  font-size:clamp(18px,1.25vw,24px); line-height:1.167; /* 28/24 no Figma */
+}
+.bento__c--w h3{ font-size:clamp(21px,1.67vw,32px); line-height:1.156; }
+.bento__c p{
+  font-size:clamp(14px,.78vw,15px); line-height:23px; color:rgba(60,63,46,.8);
+}
+.bento__c p strong{ font-weight:700; color:var(--dark); }
+.bento__c .bento__rodape{
+  margin-top:auto; padding-top:20px; display:flex; align-items:center; gap:10px;
+  font-size:11px; line-height:17px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(82,86,66,.8);
+}
+.bento__rodape svg{ transition:transform var(--dur) var(--ease); }
+.bento__c:hover .bento__rodape svg{ transform:translateX(4px); }
+
+/* card 01: texto à esquerda, colagem à direita */
+.bento__split{ display:grid; grid-template-columns:1fr 1.02fr; gap:clamp(18px,1.7vw,26px); flex:1; }
+.bento__col{ display:flex; flex-direction:column; }
+.bento__fotos{
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+  gap:10px; align-self:stretch;
+}
+.bento__fotos figure{ border-radius:8px; overflow:hidden; background:var(--cream-2); }
+.bento__fotos figure:first-child{ grid-row:span 2; }
+.bento__fotos img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* card 02: dois mockups de acompanhamento inclinados */
+/* card 02: dois painéis de medição inclinados (mock do Figma) */
+.bento__mock{
+  position:relative; flex:1; margin-top:18px; min-height:0;
+}
+.medicao{
+  position:absolute; width:57%;
+  background:#FDFDFD; border-radius:7px;
+  padding:11px 12px 9px;
+  box-shadow:0 16px 34px -14px rgba(15,15,16,.42);
+  font-size:7px; line-height:1.35; color:var(--dark);
+}
+.medicao--a{ left:0;   top:0;   transform:rotate(-3.5deg); }
+.medicao--b{ right:0;  top:11%; transform:rotate(3deg); z-index:2; }
+.medicao__top{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding-bottom:7px; border-bottom:1px solid rgba(60,63,46,.12);
+}
+.medicao__top b{ font-size:9px; font-weight:500; letter-spacing:-.01em; }
+.medicao__top span{
+  border:1px solid rgba(60,63,46,.22); border-radius:100px; padding:2px 5px;
+  font-size:4.6px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:rgba(60,63,46,.66); white-space:nowrap;
+}
+.medicao__linhas{ margin-top:6px; }
+.medicao__linhas div{
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+  padding-block:3.5px; border-bottom:1px solid rgba(60,63,46,.07);
+}
+.medicao__linhas dt{ color:rgba(60,63,46,.78); }
+.medicao__linhas dd{ color:rgba(60,63,46,.58); font-variant-numeric:tabular-nums; }
+.medicao__total{
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+  margin-top:7px; padding-top:6px; border-top:1px solid rgba(60,63,46,.18);
+}
+.medicao__total span{ font-size:6px; letter-spacing:.06em; color:rgba(60,63,46,.6); }
+.medicao__total b{ font-size:11px; font-weight:500; font-variant-numeric:tabular-nums; }
+/* escopado no pai: a regra descendente ".pai p" tem especificidade
+   maior que a classe sozinha e sobrescrevia o font-size */
+.medicao .medicao__nota{
+  margin-top:5px; font-size:4.8px; letter-spacing:.04em; color:rgba(60,63,46,.45);
+  white-space:nowrap;
+}
+
+.bento__ico{
+  width:40px; height:40px; border-radius:8px; background:var(--dark);
+  display:grid; place-items:center; margin-bottom:16px;
+}
+.bento__ico svg{ stroke:var(--cream); }
+
+/* card 04: revista inclinada */
+.bento__c--revista{ position:relative; overflow:hidden; }
+.bento__revista{
+  position:absolute; right:-6%; bottom:-8%; width:52%;
+  border-radius:10px; overflow:hidden; transform:rotate(-7deg);
+  box-shadow:0 22px 46px -20px rgba(15,15,16,.5);
+}
+.bento__revista img{ width:100%; height:auto; display:block; }
+/* a foto é o fundo da capa; o texto vem por cima, como no Figma */
+.bento__revista::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(200deg, rgba(15,15,16,.30), rgba(15,15,16,.78));
+}
+.capa{
+  position:absolute; inset:0; z-index:2; color:var(--cream);
+  padding:11% 12%; display:flex; flex-direction:column;
+}
+.capa .capa__ed{
+  font-family:var(--font-mono); font-size:8px; line-height:12px;
+  letter-spacing:.1em; text-transform:uppercase; color:rgba(246,243,232,.78);
+}
+.capa .capa__t{
+  margin-top:auto; font-family:var(--font-head); font-weight:300;
+  font-size:17px; line-height:18px; letter-spacing:-.02em;
+}
+.capa .capa__m{
+  margin-top:10px; font-size:7px; line-height:11px; letter-spacing:.22em;
+  text-transform:uppercase; color:rgba(246,243,232,.62);
+}
+/* Figma: padding-right 130 nesse card — a revista inclinada ocupa a
+   direita e o texto fica numa coluna de ~200px */
+.bento__c--revista{ padding-right:clamp(90px,6.8vw,130px); }
+.bento__c--revista .bento__num,
+.bento__c--revista h3,
+.bento__c--revista p{ max-width:200px; }
+
+/* card 05: data + checklist */
+.bento__prazo{ margin-top:auto; padding-top:20px; display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+.bento__data{
+  border:1px solid var(--line); border-radius:8px; padding:8px 14px; text-align:center;
+}
+.bento__data span{
+  display:block; font-family:var(--font-mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(82,86,66,.7);
+}
+.bento__data strong{
+  display:block; font-family:var(--font-head); font-weight:300; font-size:28px;
+  letter-spacing:-.03em; color:var(--dark); line-height:1.1;
+}
+.bento__lista li{
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; color:rgba(60,63,46,.82);
+}
+.bento__lista li + li{ margin-top:7px; }
+.bento__lista svg{ stroke:var(--olive); flex:0 0 auto; }
+
+/* ---------------------------------------------------------
+   BLOCO 4 — Visão de futuro (centralizado)
+   --------------------------------------------------------- */
+.qs-legado{
+  background:var(--cream); padding-block:clamp(56px,4.7vw,90px); text-align:center;
+}
+.qs-legado__in{ max-width:959px; margin-inline:auto; }
+.qs-legado .qs-eyebrow{ justify-content:center; color:var(--olive); }
+.qs-legado h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(30px,3.54vw,68px); letter-spacing:-.03em; line-height:1.12;
+  color:var(--dark); margin-bottom:clamp(18px,1.6vw,28px);
+}
+.qs-legado p{
+  font-size:var(--fs-body); line-height:1.72;
+  color:rgba(60,63,46,.84); max-width:76ch; margin:0 auto clamp(26px,2.4vw,40px);
+}
+.qs-legado__btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+   --------------------------------------------------------- */
+@media (max-width:1024px){
+  .qs-empresa__grid{ grid-template-columns:1fr; gap:40px; }
+  .qs-dif__head{ grid-template-columns:1fr; gap:24px; align-items:start; }
+  .qs-dif__nota{ text-align:left; }
+  /* as alturas fixas 496/319 só valem na grade de 3 colunas do Figma;
+     empilhado, o card 01 precisa de bem mais que 496 */
+  .bento{ grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .bento__c--w{ grid-column:span 2; }
+  .bento__split{ grid-template-columns:1fr; }
+  .bento__fotos{ grid-template-rows:180px 180px; }
+  .qs-stats{ grid-template-columns:repeat(2,1fr); gap:28px 24px; }
+}
+@media (max-width:640px){
+  .bento{ grid-template-columns:1fr; }
+  .bento__c--w{ grid-column:span 1; }
+  .qs-colagem{ grid-template-rows:220px 220px; }
+  .bento__c--revista p{ max-width:100%; }
+  .bento__revista{ position:static; width:60%; margin-top:18px; transform:rotate(-4deg); }
+}

@@ -1,0 +1,212 @@
+/* =========================================================
+   TRABALHE CONOSCO — Figma 285:3494
+   Nav, hero (faixa + card), newsletter e footer vêm de site.css.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   BLOCO 1 — Hero: texto à esquerda, dois cartões à direita
+   --------------------------------------------------------- */
+.tc-hero .hero__card{
+  aspect-ratio:auto;
+  min-height:min(600px, calc(100svh - var(--nav-h) - 70px));
+  justify-content:center;
+}
+.tc-hero .hero__bg img{ opacity:.34; }
+.tc-hero .hero__in{ max-width:1570px; }
+.tc-hero__grid{
+  display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(34px,4.4vw,80px);
+  align-items:center; width:100%;
+}
+.tc-hero__eyebrow{
+  display:flex; align-items:center; gap:11px; margin-bottom:16px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:500; color:rgba(246,243,232,.68);
+}
+.tc-hero__eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.tc-hero h1{
+  font-size:clamp(32px,4vw,76px); font-weight:300; line-height:1.04;
+  letter-spacing:-.038em; color:var(--cream); max-width:none;
+  margin-bottom:clamp(20px,2vw,32px);
+}
+.tc-hero h1 em{
+  font-style:italic; font-weight:300; color:rgba(246,243,232,.78);
+  font-family:var(--font-head);
+}
+.tc-hero__lead{
+  font-size:var(--fs-body-xs); line-height:1.72;
+  color:rgba(246,243,232,.78); max-width:62ch;
+}
+
+.tc-mini{ display:grid; gap:16px; }
+.tc-mini__c{
+  border:1px solid rgba(246,243,232,.18); border-radius:14px;
+  padding:clamp(20px,1.8vw,28px);
+  background:rgba(15,15,16,.26);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+/* escopado no pai: a regra descendente ".pai p" tem especificidade
+   maior que a classe sozinha e sobrescrevia o font-size */
+.tc-mini__c .tc-mini__k{
+  font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(246,243,232,.5); margin-bottom:10px;
+}
+.tc-mini__c h2{
+  font-family:var(--font-head); font-weight:400; color:var(--cream);
+  font-size:22px; letter-spacing:-.025em; line-height:1.2;
+}
+.tc-mini__c p{ font-size:13.5px; line-height:1.66; color:rgba(246,243,232,.7); margin-top:10px; }
+
+/* ---------------------------------------------------------
+   BLOCO 2 — O perfil que buscamos
+   --------------------------------------------------------- */
+.tc-perfil{ background:var(--cream); padding-block:clamp(52px,5.2vw,100px); }
+.tc-perfil__grid{
+  display:grid; grid-template-columns:1fr 1.34fr; gap:clamp(34px,4.6vw,86px);
+  align-items:start;
+}
+.tc-eyebrow{
+  display:flex; align-items:center; gap:11px; margin-bottom:16px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:500; color:var(--olive);
+}
+.tc-eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.tc-perfil h2{
+  font-family:var(--font-head); font-weight:400; color:var(--dark);
+  font-size:clamp(28px,3.1vw,52px); letter-spacing:-.035em; line-height:1.08;
+}
+.tc-perfil h2 em{ display:block; font-style:italic; font-weight:300; color:rgba(60,63,46,.74); }
+.tc-perfil__p{
+  font-size:var(--fs-body-xs); line-height:1.7;
+  color:rgba(60,63,46,.82); margin-top:clamp(18px,1.8vw,28px); max-width:46ch;
+}
+.tc-quote{
+  margin-top:clamp(22px,2.2vw,34px); padding-left:18px;
+  border-left:1px solid rgba(60,63,46,.26);
+  font-style:italic; font-weight:300; font-size:17px; line-height:1.6;
+  color:rgba(60,63,46,.72); max-width:42ch;
+}
+
+.tc-item{
+  display:grid; grid-template-columns:52px 1fr auto; gap:16px;
+  padding-block:clamp(20px,1.9vw,30px);
+  border-bottom:1px solid rgba(60,63,46,.16);
+  align-items:start;
+}
+.tc-item:first-child{ padding-top:0; }
+.tc-item:last-child{ border-bottom:0; }
+.tc-item__n{ font-family:var(--font-mono); font-size:11px; color:rgba(60,63,46,.45); padding-top:6px; }
+.tc-item h3{
+  font-family:var(--font-head); font-weight:500; color:var(--dark);
+  font-size:clamp(19px,1.62vw,26px); letter-spacing:-.025em; line-height:1.2;
+}
+.tc-item p{ font-size:15px; line-height:1.66; color:rgba(60,63,46,.78); margin-top:10px; }
+.tc-item__k{
+  border:1px solid rgba(60,63,46,.24); border-radius:100px;
+  padding:6px 13px; white-space:nowrap;
+  font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:rgba(60,63,46,.7);
+}
+
+/* ---------------------------------------------------------
+   BLOCO 3 — Vagas (faixa escura)
+   --------------------------------------------------------- */
+.tc-vagas{ background:var(--dark); padding-block:clamp(52px,5.2vw,96px); }
+.tc-vagas__head{
+  display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(28px,3.4vw,60px);
+  align-items:end; margin-bottom:clamp(30px,3.2vw,52px);
+}
+.tc-vagas__head .tc-eyebrow{ color:rgba(246,243,232,.68); }
+.tc-vagas h2{
+  font-family:var(--font-head); font-weight:400; color:var(--cream);
+  font-size:clamp(28px,3.1vw,52px); letter-spacing:-.035em; line-height:1.1;
+}
+.tc-vagas h2 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.74); }
+.tc-vagas__p{
+  font-size:var(--fs-body-xs); line-height:1.7;
+  color:rgba(246,243,232,.74); margin-top:16px; max-width:58ch;
+}
+.tc-vagas__aside{ text-align:right; }
+.tc-vagas__ciclo{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:rgba(246,243,232,.45);
+}
+.tc-vagas__aside em{
+  display:block; margin-top:10px;
+  font-style:italic; font-weight:300; font-size:19px; line-height:1.5;
+  color:rgba(246,243,232,.8);
+}
+
+/* card claro "sem vagas" */
+.tc-empty{
+  background:var(--cream); border-radius:16px; text-align:center;
+  padding:clamp(34px,3.7vw,68px) clamp(24px,3vw,56px);
+}
+.tc-empty__k{
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(60,63,46,.26); border-radius:100px; padding:7px 15px;
+  font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:rgba(60,63,46,.72); margin-bottom:clamp(18px,1.8vw,28px);
+}
+.tc-empty__k i{ width:5px; height:5px; border-radius:50%; background:currentColor; }
+.tc-empty h3{
+  font-family:var(--font-head); font-weight:400; color:var(--dark);
+  font-size:clamp(24px,2.4vw,40px); letter-spacing:-.035em; line-height:1.12;
+}
+.tc-empty p{
+  font-size:var(--fs-body-xs); line-height:1.7; color:rgba(60,63,46,.78);
+  margin:clamp(16px,1.6vw,24px) auto 0; max-width:72ch;
+}
+.tc-empty__btns{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+  margin-top:clamp(22px,2.3vw,36px);
+}
+
+/* card de candidatura espontânea */
+.tc-cand{
+  margin-top:clamp(20px,2.1vw,34px);
+  background:var(--olive); border-radius:16px; overflow:hidden;
+  display:grid; grid-template-columns:.86fr 1.14fr;
+  gap:clamp(24px,3vw,52px);
+  padding:clamp(20px,1.8vw,30px);
+  align-items:center;
+}
+.tc-cand__media{ border-radius:12px; overflow:hidden; aspect-ratio:443/412; }
+.tc-cand__media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.tc-cand__k{
+  display:flex; align-items:center; gap:11px; margin-bottom:14px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:500; color:rgba(246,243,232,.7);
+}
+.tc-cand__k i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.tc-cand h3{
+  font-family:var(--font-head); font-weight:400; color:var(--cream);
+  font-size:clamp(23px,2.2vw,38px); letter-spacing:-.035em; line-height:1.12;
+}
+.tc-cand h3 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.76); }
+.tc-cand__p{
+  font-size:15px; line-height:1.68; color:rgba(246,243,232,.78);
+  margin-top:clamp(14px,1.4vw,22px); max-width:46ch;
+}
+.tc-cand__list{ margin-top:clamp(18px,1.8vw,28px); display:grid; gap:10px; }
+.tc-cand__list li{
+  display:flex; align-items:center; gap:10px;
+  font-size:11px; letter-spacing:.06em; color:rgba(246,243,232,.62);
+}
+.tc-cand__list svg{ flex:0 0 auto; opacity:.75; }
+.tc-cand .btn{ margin-top:clamp(20px,2vw,30px); }
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+   --------------------------------------------------------- */
+@media (max-width:1024px){
+  .tc-hero__grid{ grid-template-columns:1fr; gap:32px; }
+  .tc-perfil__grid{ grid-template-columns:1fr; gap:34px; }
+  .tc-vagas__head{ grid-template-columns:1fr; gap:22px; align-items:start; }
+  .tc-vagas__aside{ text-align:left; }
+  .tc-cand{ grid-template-columns:1fr; }
+}
+@media (max-width:680px){
+  .tc-item{ grid-template-columns:38px 1fr; }
+  .tc-item__k{ grid-column:2; justify-self:start; margin-top:12px; }
+  .tc-empty__btns .btn{ width:100%; justify-content:center; }
+}

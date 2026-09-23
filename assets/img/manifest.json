@@ -1,0 +1,544 @@
+﻿{
+    "the-one":  {
+                    "fachada":  [
+                                    {
+                                        "src":  "assets/img/the-one/fachada/detalhe-fachada-nicho.jpg",
+                                        "w":  1600,
+                                        "h":  1067,
+                                        "label":  "Cópia de DETALHE FACHADA NICHO"
+                                    },
+                                    {
+                                        "src":  "assets/img/the-one/fachada/terreo-pan-2.jpg",
+                                        "w":  1600,
+                                        "h":  1067,
+                                        "label":  "Cópia de TERREO - PAN 2"
+                                    },
+                                    {
+                                        "src":  "assets/img/the-one/fachada/torre-lateral-esquerda.jpg",
+                                        "w":  1600,
+                                        "h":  1600,
+                                        "label":  "Cópia de TORRE - LATERAL ESQUERDA"
+                                    }
+                                ],
+                    "interiores":  [
+                                       {
+                                           "src":  "assets/img/the-one/interiores/academia-1.jpg",
+                                           "w":  1600,
+                                           "h":  1066,
+                                           "label":  "ACADEMIA-1"
+                                       },
+                                       {
+                                           "src":  "assets/img/the-one/interiores/ap-2q-quarto.jpg",
+                                           "w":  1600,
+                                           "h":  1175,
+                                           "label":  "AP-2Q-QUARTO"
+                                       },
+                                       {
+                                           "src":  "assets/img/the-one/interiores/ap-estudio-c.jpg",
+                                           "w":  1600,
+                                           "h":  944,
+                                           "label":  "AP-ESTUDIO-C"
+                                       },
+                                       {
+                                           "src":  "assets/img/the-one/interiores/hall-1.jpg",
+                                           "w":  1600,
+                                           "h":  606,
+                                           "label":  "Hall 1"
+                                       },
+                                       {
+                                           "src":  "assets/img/the-one/interiores/hall-2.jpg",
+                                           "w":  1600,
+                                           "h":  599,
+                                           "label":  "Hall 2"
+                                       }
+                                   ]
+                },
+    "interlagos":  {
+                       "fachada":  [
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/dia-direita.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "DIA - DIREITA"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/dia-esquerda.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "DIA - ESQUERDA"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/dia-frente.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "DIA - FRENTE"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/dia-frente-1.jpg",
+                                           "w":  1600,
+                                           "h":  900,
+                                           "label":  "DIA-FRENTE-1"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/fachada-inclinada-1.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "FACHADA-INCLINADA-1"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/noite-direita.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "NOITE - DIREITA"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/noite-esquerda.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "NOITE - ESQUERDA"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/noite-frente.jpg",
+                                           "w":  1600,
+                                           "h":  1600,
+                                           "label":  "NOITE - FRENTE"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/noite-frente-1.jpg",
+                                           "w":  1600,
+                                           "h":  900,
+                                           "label":  "NOITE-FRENTE-1"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/fachada/pan-rooftop.jpg",
+                                           "w":  1600,
+                                           "h":  900,
+                                           "label":  "PAN-ROOFTOP"
+                                       }
+                                   ],
+                       "interiores":  [
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/academia.jpg",
+                                              "w":  1600,
+                                              "h":  881,
+                                              "label":  "ACADEMIA"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/bikeshop-3x.jpg",
+                                              "w":  1180,
+                                              "h":  1600,
+                                              "label":  "BIKESHOP@3x"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/coworking.jpg",
+                                              "w":  1600,
+                                              "h":  877,
+                                              "label":  "COWORKING"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/cubo-pan-interna.jpg",
+                                              "w":  1600,
+                                              "h":  1015,
+                                              "label":  "CUBO-PAN-INTERNA"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/festas.jpg",
+                                              "w":  1600,
+                                              "h":  631,
+                                              "label":  "FESTAS"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/gourmet.jpg",
+                                              "w":  1600,
+                                              "h":  897,
+                                              "label":  "GOURMET"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/laundry.jpg",
+                                              "w":  1600,
+                                              "h":  1262,
+                                              "label":  "LAUNDRY"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/minimarket.jpg",
+                                              "w":  1600,
+                                              "h":  616,
+                                              "label":  "MINIMARKET"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/praca.jpg",
+                                              "w":  1600,
+                                              "h":  1015,
+                                              "label":  "PRAÇA"
+                                          },
+                                          {
+                                              "src":  "assets/img/interlagos/interiores/skybar.jpg",
+                                              "w":  1600,
+                                              "h":  845,
+                                              "label":  "SKYBAR"
+                                          }
+                                      ],
+                       "plantas":  [
+                                       {
+                                           "src":  "assets/img/interlagos/plantas/humanizada-rooftop-1.jpg",
+                                           "w":  1600,
+                                           "h":  1015,
+                                           "label":  "Humanizada - Rooftop 1"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/plantas/humanizada-rooftop-2.jpg",
+                                           "w":  1600,
+                                           "h":  1015,
+                                           "label":  "Humanizada - Rooftop 2"
+                                       },
+                                       {
+                                           "src":  "assets/img/interlagos/plantas/humanizada-terreo.jpg",
+                                           "w":  1600,
+                                           "h":  1015,
+                                           "label":  "Humanizada - Terreo"
+                                       }
+                                   ]
+                   },
+    "omni":  {
+                 "fachada":  [
+                                 {
+                                     "src":  "assets/img/omni/fachada/01-fachada-noturna.jpg",
+                                     "w":  1350,
+                                     "h":  1600,
+                                     "label":  "01 - FACHADA NOTURNA"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/fachada/02-fachada-diurna.jpg",
+                                     "w":  1391,
+                                     "h":  1600,
+                                     "label":  "02 - FACHADA DIURNA"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/fachada/03-acesso-noturno.jpg",
+                                     "w":  1600,
+                                     "h":  772,
+                                     "label":  "03 - ACESSO-NOTURNO"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/fachada/04-acesso.jpg",
+                                     "w":  1600,
+                                     "h":  883,
+                                     "label":  "04 - ACESSO"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/fachada/05-voo-de-passaro.jpg",
+                                     "w":  1600,
+                                     "h":  783,
+                                     "label":  "05 - VOO DE PASSARO"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/fachada/06-fotomontagem.jpg",
+                                     "w":  1600,
+                                     "h":  935,
+                                     "label":  "06 - FOTOMONTAGEM"
+                                 }
+                             ],
+                 "area-comum":  [
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-academia-01.jpg",
+                                        "w":  1600,
+                                        "h":  886,
+                                        "label":  "ROOFTOP - ACADEMIA 01"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-academia-02.jpg",
+                                        "w":  1600,
+                                        "h":  892,
+                                        "label":  "ROOFTOP - ACADEMIA 02"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-omni-beer.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "ROOFTOP - OMNI BEER"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-omni-billard.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "ROOFTOP - OMNI BILLARD"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-omni-masterchef.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "ROOFTOP - OMNI MASTERCHEF"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-omni-sunset-03.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "ROOFTOP - OMNI SUNSET 03"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/rooftop-omni-wine-03.jpg",
+                                        "w":  1600,
+                                        "h":  869,
+                                        "label":  "ROOFTOP - OMNI WINE 03"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/sub-solo-bike-shop.jpg",
+                                        "w":  1600,
+                                        "h":  1067,
+                                        "label":  "SUB-SOLO - BIKE SHOP"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-brinquedoteca.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "TÉRREO - BRINQUEDOTECA"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-coworking.jpg",
+                                        "w":  1536,
+                                        "h":  1024,
+                                        "label":  "TÉRREO - COWORKING"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-espaco-beauty.jpg",
+                                        "w":  1600,
+                                        "h":  819,
+                                        "label":  "TÉRREO - ESPAÇO BEAUTY"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-gamer.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "TÉRREO - GAMER"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-lavanderia.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "TÉRREO - LAVANDERIA"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-lobby.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "TÉRREO - LOBBY"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-mini-quadra.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "TÉRREO - MINI QUADRA"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-pet-care.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "TÉRREO - PET CARE"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-piscina-adulto.jpg",
+                                        "w":  1600,
+                                        "h":  900,
+                                        "label":  "TÉRREO - PISCINA ADULTO"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-piscina-infantil.jpg",
+                                        "w":  1600,
+                                        "h":  900,
+                                        "label":  "TÉRREO - PISCINA INFANTIL"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-playground.jpg",
+                                        "w":  1600,
+                                        "h":  899,
+                                        "label":  "TÉRREO - PLAYGROUND"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-podcast.jpg",
+                                        "w":  1600,
+                                        "h":  1067,
+                                        "label":  "TÉRREO - PODCAST"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-sala-entregas.jpg",
+                                        "w":  1600,
+                                        "h":  1067,
+                                        "label":  "TÉRREO - SALA ENTREGAS"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-sala-massagem.jpg",
+                                        "w":  1600,
+                                        "h":  1063,
+                                        "label":  "TÉRREO - SALA MASSAGEM"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-sauna.jpg",
+                                        "w":  1536,
+                                        "h":  1600,
+                                        "label":  "TÉRREO - SAUNA"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/area-comum/terreo-wellness.jpg",
+                                        "w":  1600,
+                                        "h":  893,
+                                        "label":  "TÉRREO - WELLNESS"
+                                    }
+                                ],
+                 "interiores":  [
+                                    {
+                                        "src":  "assets/img/omni/interiores/2qt-living-1.jpg",
+                                        "w":  1600,
+                                        "h":  1065,
+                                        "label":  "2QT - LIVING 1"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/2qt-living-2.jpg",
+                                        "w":  1600,
+                                        "h":  1065,
+                                        "label":  "2QT - LIVING 2"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/2qt-suite-1.jpg",
+                                        "w":  1600,
+                                        "h":  1564,
+                                        "label":  "2QT - SUITE 1"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/2st-living.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "2ST - LIVING"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/2st-suite-2.jpg",
+                                        "w":  1600,
+                                        "h":  1061,
+                                        "label":  "2ST - SUITE 2"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/penthouse-121m2-livgin-01.jpg",
+                                        "w":  1600,
+                                        "h":  901,
+                                        "label":  "PENTHOUSE 121m2 - LIVGIN 01"
+                                    },
+                                    {
+                                        "src":  "assets/img/omni/interiores/penthouse-121m2-livgin-02.jpg",
+                                        "w":  1600,
+                                        "h":  854,
+                                        "label":  "PENTHOUSE 121m2 - LIVGIN 02"
+                                    }
+                                ],
+                 "drone":  [
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082514-0161-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082514_0161_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082534-0162-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082534_0162_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082556-0163-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082556_0163_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082611-0164-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082611_0164_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082653-0165-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082653_0165_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082658-0166-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082658_0166_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082701-0167-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082701_0167_D"
+                               },
+                               {
+                                   "src":  "assets/img/omni/drone/dji-20260512082707-0168-d.jpg",
+                                   "w":  1600,
+                                   "h":  900,
+                                   "label":  "Cópia de DJI_20260512082707_0168_D"
+                               }
+                           ],
+                 "plantas":  [
+                                 {
+                                     "src":  "assets/img/omni/plantas/01-subsolo.jpg",
+                                     "w":  1313,
+                                     "h":  1600,
+                                     "label":  "01 -  SUBSOLO "
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/02-terreo.jpg",
+                                     "w":  1313,
+                                     "h":  1600,
+                                     "label":  "02 -  TÉRREO"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/03-g1.jpg",
+                                     "w":  1313,
+                                     "h":  1600,
+                                     "label":  "03 - G1"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/04-g2.jpg",
+                                     "w":  1313,
+                                     "h":  1600,
+                                     "label":  "04 - G2"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/05-pav-03-ao-22.jpg",
+                                     "w":  709,
+                                     "h":  1600,
+                                     "label":  "05 - PAV 03 AO 22"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/06-pav-03-ao-22-final-1.jpg",
+                                     "w":  1183,
+                                     "h":  1600,
+                                     "label":  "06 - PAV- 03 AO 22 - FINAL 1"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/07-pav-03-ao-22-final-2.jpg",
+                                     "w":  1451,
+                                     "h":  1600,
+                                     "label":  "07 - PAV- 03 AO 22 - FINAL 2"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/08-pav-03-ao-22-final-3.jpg",
+                                     "w":  1451,
+                                     "h":  1600,
+                                     "label":  "08 - PAV- 03 AO 22 -FINAL 3"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/09-pav-03-ao-22-final-4.jpg",
+                                     "w":  1600,
+                                     "h":  1600,
+                                     "label":  "09 - PAV- 03 AO 22 -FINAL 4"
+                                 },
+                                 {
+                                     "src":  "assets/img/omni/plantas/10-pav-03-ao-22-final-5.jpg",
+                                     "w":  1600,
+                                     "h":  1600,
+                                     "label":  "10 - PAV- 03 AO 22 -FINAL 5"
+                                 }
+                             ]
+             }
+}

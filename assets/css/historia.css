@@ -1,0 +1,340 @@
+/* =========================================================
+   HISTÓRIA — Imperial Urbanismo
+   Complementa site.css (nav, hero, CTA, newsletter, footer).
+   Fiel ao Figma: node 285:1345 (canvas 1920).
+   Copy já reformulada pelo cliente: Grupo Rei + marcos + legado.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   HERO — texto à esquerda, linha do tempo à direita
+   --------------------------------------------------------- */
+/* No Figma a foto está a 8% de opacidade: é textura de fundo.
+   O asset foi exportado em opacidade cheia e esmaecido aqui. */
+.hs-hero .hero__card{ background:var(--dark); }
+.hs-hero .hero__bg img{ opacity:.07; }
+
+/* Este hero carrega muito mais conteúdo que os outros (texto longo +
+   linha do tempo de 5 marcos). Com a proporção fixa de 1780/838 o
+   conteúdo estourava o card e era cortado pelo overflow:hidden.
+   Aqui o card CRESCE com o texto — não corta em nenhuma largura. */
+.hs-hero .hero__card{
+  aspect-ratio:auto;
+  min-height:min(820px, calc(100svh - var(--nav-h) - 70px));
+  justify-content:center;
+  padding-block:clamp(38px,3.9vw,72px);
+}
+/* e o conteúdo usa quase toda a largura do card, como no Figma
+   (lá o hero ocupa ~1570 dos 1920, não a coluna de 1120) */
+.hs-hero .hero__in{ max-width:1570px; }
+.hs-hero .hero__scrim{
+  background:linear-gradient(to top,
+    rgba(26,29,20,.58) 0%, rgba(26,29,20,.32) 45%,
+    rgba(28,31,22,.14) 80%, rgba(28,31,22,.30) 100%);
+}
+.hs-hero__grid{
+  display:grid; grid-template-columns:1.12fr 1fr; gap:clamp(36px,4.6vw,72px);
+  /* coluna da esquerda centralizada com o meio da linha do tempo */
+  align-items:center; width:100%;
+}
+.hs-hero h1{
+  /* um pouco menor que os 84px do Figma: com o corpo de texto em 18px
+     o bloco todo cresceu, e 72px mantém o hero numa altura confortável */
+  font-size:clamp(32px,3.75vw,72px); font-weight:400; line-height:1.07;
+  letter-spacing:-.035em; color:var(--cream); margin-bottom:clamp(18px,1.8vw,30px);
+  /* o .hero h1 compartilhado limita a 14ch; aqui a coluna do grid já
+     define a medida, e o título fecha em 2 linhas no desktop */
+  max-width:none;
+}
+.hs-hero h1 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.74); }
+.hs-hero__lead p{
+  font-size:var(--fs-body); line-height:1.7;
+  color:rgba(246,243,232,.78);
+}
+.hs-hero__lead p + p{ margin-top:16px; }
+.hs-hero__lead strong{ font-weight:600; color:var(--cream); }
+
+/* o lead do hero é texto de apoio: um degrau abaixo do corpo padrão */
+.hs-hero__lead p{ font-size:clamp(13.5px,1.04vw,15px); line-height:1.68; }
+.hs-hero__lead p:first-child{ font-size:var(--fs-body-xs); }
+
+/* lockup Grupo Rei + Imperial */
+.hs-lockup{ margin-top:clamp(26px,2.8vw,44px); }
+.hs-lockup__row{
+  display:flex; align-items:center; gap:14px;
+  padding-bottom:12px; border-bottom:1px solid rgba(246,243,232,.22);
+}
+.hs-lockup__row img{ display:block; }
+.hs-lockup__rei{ height:34px; width:auto; }
+.hs-lockup__imp{ height:26px; width:auto; }
+.hs-lockup__plus{ font-size:18px; color:rgba(246,243,232,.5); line-height:1; }
+.hs-lockup__cap{
+  margin-top:10px; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(246,243,232,.55);
+}
+.hs-lockup__cap strong{ color:rgba(246,243,232,.85); font-weight:600; }
+
+/* linha do tempo */
+.hs-marcos__t{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:rgba(246,243,232,.5);
+  padding-bottom:14px; border-bottom:1px solid rgba(246,243,232,.18);
+}
+.hs-marco{
+  display:grid; grid-template-columns:44px 1fr; gap:18px; align-items:start;
+  padding-block:clamp(14px,1.3vw,20px);
+  border-bottom:1px solid rgba(246,243,232,.12);
+}
+.hs-marco i{
+  display:block; height:1px; margin-top:10px; background:rgba(246,243,232,.42);
+}
+.hs-marco h3{
+  font-family:var(--font-body); font-weight:500;
+  font-size:var(--fs-body-sm); color:var(--cream); margin-bottom:5px;
+}
+.hs-marco p{
+  font-size:var(--fs-body-xs); line-height:1.6; color:rgba(246,243,232,.55);
+}
+.hs-marcos__fim{
+  margin-top:16px; text-align:right;
+  font-size:var(--fs-body-xs); color:rgba(246,243,232,.62);
+}
+.hs-marcos__fim em{ font-style:italic; color:rgba(246,243,232,.8); }
+
+/* ---------------------------------------------------------
+   BLOCO 2 — Vídeo institucional
+   --------------------------------------------------------- */
+.hs-video{ background:var(--cream); padding-block:clamp(56px,4.7vw,90px); text-align:center; }
+.hs-video h2{
+  font-family:var(--font-head); font-weight:400;
+  /* estava um degrau abaixo dos outros títulos da página */
+  font-size:clamp(30px,3.12vw,58px); letter-spacing:-.035em; line-height:1.12;
+  color:var(--dark); max-width:20ch; margin:0 auto 16px;
+}
+.hs-video__sub{
+  font-size:var(--fs-body); line-height:1.65;
+  color:rgba(60,63,46,.78); max-width:56ch; margin:0 auto clamp(28px,3vw,48px);
+}
+/* fachada do player: só carrega o iframe do YouTube no clique */
+.hs-player{
+  position:relative; max-width:980px; margin-inline:auto;
+  aspect-ratio:16/9; border-radius:20px; overflow:hidden;
+  background:var(--dark-2); cursor:pointer; display:block; width:100%;
+  box-shadow:0 30px 70px -40px rgba(15,15,16,.6);
+}
+.hs-player img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:.62; transition:opacity .5s var(--ease), transform .8s var(--ease);
+}
+.hs-player:hover img{ opacity:.72; transform:scale(1.03); }
+.hs-player__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(26,29,20,.78), rgba(26,29,20,.30));
+}
+.hs-player__in{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:20px; text-align:center;
+  padding:clamp(20px,3vw,40px);
+}
+.hs-player__play{
+  width:clamp(58px,4.6vw,74px); aspect-ratio:1; border-radius:50%;
+  background:rgba(246,243,232,.94); display:grid; place-items:center;
+  transition:transform var(--dur) var(--ease), background .3s;
+}
+.hs-player:hover .hs-player__play{ transform:scale(1.07); background:var(--cream); }
+.hs-player__play svg{ fill:var(--dark); margin-left:3px; }
+.hs-player__t{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(16px,1.35vw,26px); letter-spacing:-.025em; color:var(--cream);
+}
+.hs-player__t span{ display:block; font-size:.62em; color:rgba(246,243,232,.68); margin-top:6px; }
+.hs-player iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* ---------------------------------------------------------
+   BLOCO 3 — Propósito (card escuro)
+   --------------------------------------------------------- */
+.hs-prop{ background:var(--cream); padding-block:0 clamp(56px,4.7vw,90px); }
+.hs-prop__card{
+  background:var(--dark); border-radius:20px; color:var(--cream);
+  padding:clamp(32px,3.65vw,70px);
+  display:grid; grid-template-columns:1.02fr 1fr; gap:clamp(32px,4.2vw,80px);
+  /* a coluna da direita centralizada com o meio da coluna da esquerda */
+  align-items:center;
+}
+/* o card extrapola a coluna de conteúdo, como o hero desta página */
+.hs-prop .wrap{ max-width:1570px; }
+.hs-prop__eyebrow{
+  display:flex; align-items:center; gap:11px; margin-bottom:12px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+  color:rgba(246,243,232,.7);
+}
+.hs-prop__eyebrow i{ display:block; width:28px; height:1px; background:currentColor; opacity:.5; }
+.hs-prop__k{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.12em;
+  color:rgba(246,243,232,.42); margin-bottom:20px;
+}
+.hs-prop h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(30px,3.54vw,68px); letter-spacing:-.035em; line-height:1.08;
+  color:var(--cream); margin-bottom:clamp(18px,1.7vw,28px);
+}
+.hs-prop h2 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.72); }
+.hs-prop__p{ font-size:var(--fs-body); line-height:1.68; color:rgba(246,243,232,.76); }
+.hs-prop__p strong{ color:var(--cream); font-weight:600; }
+
+.hs-item{
+  display:grid; grid-template-columns:34px 1fr; gap:14px;
+  padding-block:clamp(16px,1.5vw,22px);
+  border-bottom:1px solid rgba(246,243,232,.14);
+}
+.hs-item:first-child{ padding-top:0; }
+.hs-item:last-child{ border-bottom:0; }
+.hs-item__n{
+  font-family:var(--font-mono); font-size:11px; color:rgba(246,243,232,.42);
+}
+.hs-item h3{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(16px,1.04vw,20px); letter-spacing:-.02em; color:var(--cream);
+  margin-bottom:7px;
+}
+.hs-item p{ font-size:var(--fs-body-sm); line-height:1.62; color:rgba(246,243,232,.55); }
+
+/* ---------------------------------------------------------
+   BLOCO 4 — Valores
+   --------------------------------------------------------- */
+.hs-val{ background:var(--cream); padding-block:clamp(56px,4.7vw,90px); }
+.hs-val__head{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+  margin-bottom:clamp(30px,3vw,52px);
+}
+.hs-val__head h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(28px,2.92vw,56px); letter-spacing:-.03em; line-height:1.1;
+  color:var(--dark);
+}
+.hs-val__head h2 em{ font-style:italic; font-weight:300; color:var(--olive); }
+.hs-val__nota{ text-align:right; }
+.hs-val__nota span{
+  display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:rgba(82,86,66,.6); margin-bottom:12px;
+}
+.hs-val__nota p{
+  font-style:italic; font-size:clamp(14px,1.15vw,22px); line-height:1.5;
+  color:var(--olive);
+}
+
+.hs-valor{
+  display:grid; grid-template-columns:56px 1fr 1.05fr; gap:clamp(20px,2.6vw,46px);
+  align-items:start; padding-block:clamp(26px,2.9vw,46px);
+  border-top:1px solid var(--line);
+}
+.hs-valor:last-child{ border-bottom:1px solid var(--line); }
+.hs-valor__n{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.06em;
+  color:rgba(82,86,66,.6); padding-top:12px;
+}
+.hs-valor h3{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(24px,2.08vw,40px); letter-spacing:-.03em; line-height:1.15;
+  color:var(--dark);
+}
+.hs-valor h3 em{
+  display:block; font-style:italic; font-weight:300;
+  font-size:.7em; color:var(--olive); margin-top:2px;
+}
+.hs-valor p{
+  font-size:var(--fs-body); line-height:1.68; color:rgba(60,63,46,.82);
+  padding-top:8px;
+}
+
+/* ---------------------------------------------------------
+   BLOCO 5 — Como trabalhamos
+   --------------------------------------------------------- */
+.hs-proc{ background:var(--dark); padding-block:clamp(56px,4.7vw,90px); color:var(--cream); }
+.hs-proc__grid{ display:grid; grid-template-columns:1fr 1.07fr; gap:clamp(36px,4.7vw,90px); align-items:start; }
+.hs-proc h2{
+  font-family:var(--font-head); font-weight:400;
+  font-size:clamp(28px,2.92vw,56px); letter-spacing:-.03em; line-height:1.1;
+  color:var(--cream); margin-bottom:clamp(20px,2vw,32px);
+}
+.hs-proc h2 em{ font-style:italic; font-weight:300; color:rgba(246,243,232,.72); }
+.hs-proc__p{ font-size:var(--fs-body); line-height:1.7; color:rgba(246,243,232,.76); }
+.hs-proc__p + .hs-proc__p{ margin-top:18px; }
+.hs-proc__p strong{ color:var(--cream); font-weight:600; }
+
+.hs-card{
+  position:relative;
+  background:var(--paper); border-radius:14px; padding:clamp(22px,2.1vw,34px);
+  box-shadow:0 26px 60px -34px rgba(15,15,16,.6);
+}
+/* trilho que liga as elipses numeradas; o preenchimento acompanha o scroll.
+   Posição e altura são medidas em JS a partir dos centros da 1ª e da última. */
+.hs-trilho{
+  position:absolute; width:1px; z-index:0; pointer-events:none;
+  background:rgba(82,86,66,.20);
+}
+.hs-trilho i{
+  position:absolute; inset:0 0 auto 0; height:0;
+  background:var(--olive);
+  transition:height .18s linear;
+}
+.hs-card__top{
+  display:flex; align-items:baseline; justify-content:space-between; gap:18px;
+  padding-bottom:16px; border-bottom:1px solid var(--line); margin-bottom:6px;
+}
+.hs-card__top h3{
+  font-family:var(--font-body); font-weight:500;
+  font-size:clamp(14px,.83vw,16px); color:var(--dark); letter-spacing:0;
+}
+.hs-card__top span{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(82,86,66,.6); white-space:nowrap;
+}
+.hs-etapa{
+  display:grid; grid-template-columns:30px 1fr auto; gap:14px; align-items:start;
+  padding-block:clamp(14px,1.3vw,18px);
+}
+.hs-etapa + .hs-etapa{ border-top:1px solid rgba(82,86,66,.12); }
+.hs-etapa__n{
+  position:relative; z-index:1;
+  width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  border:1px solid var(--line); font-family:var(--font-mono); font-size:10px;
+  color:rgba(82,86,66,.8);
+  /* opaca para o trilho passar por trás, não através */
+  background:var(--paper);
+  transition:background .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);
+}
+.hs-etapa.is-on .hs-etapa__n{
+  background:var(--olive); border-color:var(--olive); color:var(--cream);
+}
+.hs-etapa h4{
+  font-family:var(--font-body); font-weight:500;
+  font-size:var(--fs-body-sm); color:var(--dark); margin-bottom:4px;
+}
+.hs-etapa p{ font-size:var(--fs-body-xs); line-height:1.55; color:rgba(60,63,46,.7); }
+.hs-tag{
+  align-self:center; height:24px; padding-inline:11px; border-radius:100px;
+  display:inline-flex; align-items:center; white-space:nowrap;
+  font-size:9.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  border:1px solid var(--line); color:rgba(82,86,66,.85);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+   --------------------------------------------------------- */
+@media (max-width:1024px){
+  .hs-hero__grid{ grid-template-columns:1fr; gap:36px; }
+  .hs-prop__card{ grid-template-columns:1fr; gap:32px; }
+  .hs-val__head{ grid-template-columns:1fr; gap:20px; }
+  .hs-val__nota{ text-align:left; }
+  .hs-proc__grid{ grid-template-columns:1fr; gap:36px; }
+  .hs-valor{ grid-template-columns:48px 1fr; gap:18px 24px; }
+  .hs-valor p{ grid-column:2; padding-top:0; }
+}
+@media (max-width:640px){
+  .hs-valor{ grid-template-columns:1fr; }
+  .hs-valor p{ grid-column:1; }
+  .hs-valor__n{ padding-top:0; }
+  .hs-etapa{ grid-template-columns:30px 1fr; }
+  .hs-tag{ grid-column:2; justify-self:start; margin-top:8px; }
+  .hs-marcos__fim{ text-align:left; }
+}
