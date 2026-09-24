@@ -19,14 +19,16 @@ RewriteRule ^ / [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
+# A Revista saiu do ar. Manda para a home em vez de dar 404
+# para quem tiver o link antigo salvo ou vier do Google.
+# Fica ANTES da regra da barra final, senao /revista/ daria
+# dois saltos: -> /revista -> /.
+RewriteRule ^revista/?$ / [R=301,L]
+
 # /pagina/  ->  /pagina   (sem a barra final e a versao canonica)
 # O !-d protege as pastas de verdade, como /assets/.
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-# A Revista saiu do ar. Manda para a home em vez de dar 404
-# para quem tiver o link antigo salvo ou vier do Google.
-RewriteRule ^revista/?$ / [R=301,L]
 
 # Internamente, /pagina serve o arquivo /pagina.html
 RewriteCond %{REQUEST_FILENAME}.html -f
