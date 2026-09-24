@@ -170,10 +170,10 @@ const PROJETOS = [
 /* Mesmo menu das demais páginas — a Revista saiu do ar por ora.
    Qualquer mudança aqui tem que valer também nos .html escritos à mão. */
 const NAV = [
-  ['home.html','Home'], ['quem-somos.html','Quem Somos'], ['historia.html','História'],
-  ['empreendimentos.html','Empreendimentos'], ['portfolio.html','Portfólio'],
-  ['acompanhamento-de-obras.html','Acompanhamento de Obras'],
-  ['trabalhe-conosco.html','Trabalhe Conosco'], ['contato.html','Contato']
+  ['/','Home'], ['/quem-somos','Quem Somos'], ['/historia','História'],
+  ['/empreendimentos','Empreendimentos'], ['/portfolio','Portfólio'],
+  ['/acompanhamento-de-obras','Acompanhamento de Obras'],
+  ['/trabalhe-conosco','Trabalhe Conosco'], ['/contato','Contato']
 ];
 const NAV_ATIVO = 'Empreendimentos';
 
@@ -244,7 +244,7 @@ function page(p) {
 <!-- ================= NAV ================= -->
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="nav__logo" href="home.html" aria-label="Imperial Urbanismo">${LOGO}</a>
+    <a class="nav__logo" href="/" aria-label="Imperial Urbanismo">${LOGO}</a>
     <nav class="nav__links">
       ${navLinks.map(([h, l]) => `<a href="${h}"${l === NAV_ATIVO ? ' class="is-active"' : ''}>${esc(l)}</a>`).join('\n      ')}
     </nav>
@@ -401,15 +401,15 @@ ${hasObra ? `
       </div>
       <div>
         <h4>Empresa</h4>
-        <ul><li><a href="quem-somos.html">Quem Somos</a></li><li><a href="historia.html">História</a></li><li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li></ul>
+        <ul><li><a href="/quem-somos">Quem Somos</a></li><li><a href="/historia">História</a></li><li><a href="/trabalhe-conosco">Trabalhe Conosco</a></li></ul>
       </div>
       <div>
         <h4>Projetos</h4>
-        <ul><li><a href="empreendimentos.html">Empreendimentos</a></li><li><a href="portfolio.html">Portfólio</a></li><li><a href="acompanhamento-de-obras.html">Acompanhamento de Obras</a></li></ul>
+        <ul><li><a href="/empreendimentos">Empreendimentos</a></li><li><a href="/portfolio">Portfólio</a></li><li><a href="/acompanhamento-de-obras">Acompanhamento de Obras</a></li></ul>
       </div>
       <div>
         <h4>Conteúdo</h4>
-        <ul><li><a href="contato.html">Contato</a></li></ul>
+        <ul><li><a href="/contato">Contato</a></li></ul>
       </div>
     </div>
     <div class="hfoot__bar">
