@@ -1,9 +1,7 @@
 ---
 deployment:
   tasks:
-    # ATENCAO: troque SEU_USUARIO pelo usuario do cPanel.
-    # Aparece no canto superior direito do painel, em "Conta".
-    - export DEPLOYPATH=/home/SEU_USUARIO/public_html
+    - export DEPLOYPATH=/home/imperial/public_html
     # Copia o site para o webroot. Os --exclude tiram do ar o que e
     # so de desenvolvimento. SEM --delete de proposito: nao apaga
     # nada que ja esteja no servidor, entao o primeiro deploy nao tem
