@@ -43,6 +43,11 @@ RewriteRule ^(.+?)/?$ $1.html [L]
 
 # --- Cache de assets -----------------------
 # As imagens são 24 MB: sem isso o visitante rebaixa tudo a cada visita.
+#
+# ATENCAO: com cache de 1 ano, trocar uma imagem mantendo o mesmo
+# nome NAO chega em quem ja visitou o site. Ao substituir um asset,
+# incrementar a query na tag: src="...jpg?v=2", depois ?v=3, etc.
+# O navegador trata como URL nova e baixa o arquivo de novo.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg        "access plus 1 year"
