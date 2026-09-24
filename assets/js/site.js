@@ -451,6 +451,23 @@
       if (s && s.classList.contains('slide--card')) return;
       if (s && s.closest('.carousel')) { openLb(s); }
     });
+
+    /* Galeria avulsa: um botão [data-galeria="#id"] abre o lightbox com os
+       .slide de um contêiner oculto. Usado no card do Recanto dos Pássaros,
+       que tem fotos mas não tem página própria. */
+    $$('[data-galeria]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var cont = document.querySelector(btn.getAttribute('data-galeria'));
+        if (!cont) return;
+        var itens = $$('.slide', cont);
+        if (!itens.length) return;
+        pool = itens; cur = 0;
+        render();
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
     $('.lightbox__close', lb).addEventListener('click', closeLb);
     $('.lightbox__prev',  lb).addEventListener('click', function (e) { e.stopPropagation(); go(-1); });
     $('.lightbox__next',  lb).addEventListener('click', function (e) { e.stopPropagation(); go(1); });

@@ -218,5 +218,46 @@
 @media (max-width:640px){
   .stats{ grid-template-columns:1fr; }
   .hfoot__grid{ grid-template-columns:1fr; }
-  .hhero__foot{ justify-content:center; text-align:center; }
+
+  /* ---------------------------------------------------------
+     HERO MOBILE — Figma 426:219 (quadro de 430)
+     No desktop a foto é o fundo do card inteiro e o gradiente a dissolve.
+     No mobile ela é só uma FAIXA no topo de um card creme: esticá-la pela
+     altura toda deixava a imagem irreconhecível atrás do gradiente.
+     --------------------------------------------------------- */
+  .hhero{ padding:calc(var(--nav-h) + 8px) clamp(20px,8.37vw,36px) 0; }
+  .hhero__card{
+    aspect-ratio:auto; min-height:0; border-radius:10px;
+    justify-content:flex-start;
+    /* o H1 começa a 220 do topo do card (51,2% de 430) */
+    padding:clamp(170px,51.2vw,250px) 9px clamp(28px,8.8vw,38px);
+  }
+  /* faixa da foto: 278 de 430 = 64,6vw */
+  .hhero__bg,
+  .hhero__grad{ inset:0 0 auto 0; height:clamp(215px,64.6vw,300px); }
+  /* stops exatos do gradiente do Figma (nó 426:221) */
+  .hhero__grad{
+    background:linear-gradient(to bottom,
+      rgba(246,243,232,0)    0%,
+      rgba(246,243,232,.13) 20.1%,
+      rgba(246,243,232,.38) 44.8%,
+      rgba(246,243,232,.75) 68.3%,
+      rgba(246,243,232,1)   100%);
+  }
+  /* o card é #F6F3E8 no Figma: com --paper (#FBF9F2) aparecia uma emenda
+     onde o gradiente termina */
+  .hhero__card{ background:var(--cream); }
+  .hhero__in{ margin-bottom:0; }
+  .hhero h1{ font-size:clamp(30px,9.77vw,44px); line-height:1.1; margin-bottom:22px; }
+  .hhero__lead,
+  .hhero__tag{ font-size:clamp(15px,4.19vw,18px); line-height:1.4; }
+  .hhero__tag{
+    margin-bottom:clamp(20px,6.5vw,28px);
+    max-width:19ch; margin-inline:auto;
+  }
+  /* botões empilhados, 292 de 358 no Figma */
+  .hhero__btns{ flex-direction:column; align-items:center; gap:10px; }
+  .hhero__btns .btn{ width:min(100%,292px); }
+  /* o rodapé do card não existe no layout mobile */
+  .hhero__foot{ display:none; }
 }

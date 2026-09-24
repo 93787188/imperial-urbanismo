@@ -57,6 +57,11 @@ button,input,select,textarea{ font:inherit; color:inherit; }
 button{ background:none; border:0; cursor:pointer; }
 :focus-visible{ outline:2px solid var(--olive); outline-offset:3px; border-radius:4px; }
 
+/* quebra de linha que só existe no mobile (quando o Figma fixa onde
+   cada linha termina e não dá para confiar na medida do texto) */
+.br-mob{ display:none; }
+@media (max-width:640px){ .br-mob{ display:inline; } }
+
 .wrap{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--pad); }
 
 /* ---------- tipografia ---------- */
@@ -321,7 +326,12 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
 .carousel{ position:relative; width:100vw; margin-left:calc(50% - 50vw); }
 .carousel__viewport{
   display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory;
-  scroll-behavior:smooth; padding-bottom:4px;
+  scroll-behavior:smooth;
+  /* overflow-x:auto recorta nos dois eixos: sem esta folga a sombra do
+     hover dos cards fica cortada. A margem negativa devolve o espaço
+     para o ritmo vertical da seção não mudar. */
+  padding-block:14px 46px;
+  margin-block:-14px -42px;
   padding-inline:var(--bleed-pad);
   /* sem isto o snap ignora o padding e o carrossel nasce com
      scrollLeft = padding (primeiro slide colado na borda, seta
@@ -339,7 +349,9 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
   animation:slideIn .6s var(--ease) forwards;
 }
 @keyframes slideIn{ to{ opacity:1; transform:none; } }
-.slide--tall{ aspect-ratio:3/4; width:min(540px,78vw); }
+/* plantas: retrato, mas não podem ficar mais altas que os slides da
+   galeria — 540x720 dominava a seção */
+.slide--tall{ aspect-ratio:3/4; width:min(400px,62vw); }
 .slide img{
   width:100%; height:100%; object-fit:cover;
   transition:transform .7s var(--ease), filter .5s;
@@ -511,9 +523,15 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
   padding:clamp(48px,7vw,104px) clamp(24px,4vw,60px);
   text-align:center;
 }
-.hcta__bg{ position:absolute; inset:0; z-index:0; opacity:.15; }
+/* a foto agora é a original (antes era um render achatado do Figma, que
+   já vinha com a opacidade queimada). 6% é o valor do Figma. */
+.hcta__bg{ position:absolute; inset:0; z-index:0; opacity:.06; }
 .hcta__bg img{ width:100%; height:100%; object-fit:cover; }
-.hcta__in{ position:relative; z-index:2; max-width:646px; margin-inline:auto; }
+/* o contêiner acompanha o subtítulo; o H2 tem quebras explícitas,
+   então alargar aqui não muda as linhas dele */
+.hcta__in{ position:relative; z-index:2; max-width:880px; margin-inline:auto; }
+.hcta__in h2{ max-width:646px; }
+.hcta__in p{ max-width:860px; margin-inline:auto; }
 /* escopado no pai: a regra descendente ".pai p" tem especificidade
    maior que a classe sozinha e sobrescrevia o font-size */
 .hcta__in .hcta__eyebrow{
@@ -524,14 +542,17 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
 .hcta__eyebrow i{ display:block; width:34px; height:1px; background:currentColor; opacity:.5; }
 .hcta__in h2{
   font-family:var(--font-head); font-weight:700; font-size:clamp(30px,3.96vw,76px);
-  letter-spacing:-.035em; line-height:1.06; color:var(--cream); margin:20px 0;
+  letter-spacing:-.035em; line-height:1.06; color:var(--cream);
+  /* auto nas laterais: com '20px 0' o bloco encostava à esquerda do
+     contêiner de 880 em vez de ficar centrado */
+  margin:20px auto;
 }
 .hcta__in p{ font-size:var(--fs-body); line-height:1.65; color:rgba(246,243,232,.84); margin-bottom:32px; }
 
 /* =========================================================
    NEWSLETTER — box de 1290px (Figma 285:848)
    ========================================================= */
-.hnews{ background:var(--cream); padding:clamp(40px,3.1vw,60px) clamp(16px,2vw,40px) clamp(48px,6vw,80px); }
+.hnews{ background:var(--cream); padding:clamp(40px,3.1vw,60px) clamp(16px,2vw,40px) clamp(40px,4.95vw,95px); }
 .hnews__card{
   max-width:1290px; margin-inline:auto;
   background:var(--cream-deep); border-radius:0;
@@ -556,7 +577,12 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
 /* =========================================================
    FOOTER — igual ao da Home (Figma 285:866)
    ========================================================= */
-.hfoot{ position:relative; background:#1F1F1F; color:var(--cream); overflow:hidden; margin-top:clamp(48px,6vw,80px); }
+/* o respiro antes do footer vem do padding-bottom da newsletter (95px no
+   Figma); margem aqui somaria duas vezes */
+.hfoot{ position:relative; background:#1F1F1F; color:var(--cream); overflow:hidden; }
+/* páginas de empreendimento não têm newsletter: o CTA encosta no footer
+   sem isto. Mesmos 95px do Figma. */
+.hcta + .hfoot{ margin-top:95px; }
 .hfoot__photo{ position:absolute; inset:0; z-index:0; }
 .hfoot__photo img{ width:100%; height:100%; object-fit:cover; opacity:.116; }
 .hfoot__photo::after{
@@ -596,6 +622,8 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
 .crumb a{ transition:color .3s; }
 .crumb a:hover{ color:var(--cream); }
 .crumb b{ font-weight:400; color:rgba(246,243,232,.85); }
+/* variante só com a data: alinha à direita, sem a migalha */
+.crumb--so-meta{ justify-content:flex-end; }
 .crumb__meta{
   font-family:var(--font-mono); font-size:10px; letter-spacing:.1em;
   color:rgba(246,243,232,.42);

@@ -73,7 +73,8 @@
   transition:transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .slide--card:hover{ transform:translateY(-4px); box-shadow:0 18px 44px rgba(26,29,20,.12); }
-.pf-card__media{ aspect-ratio:372/240; overflow:hidden; background:var(--dark-2); }
+/* quadrado: a torre inteira não cabe num recorte 372/240 */
+.pf-card__media{ aspect-ratio:1/1; overflow:hidden; background:var(--dark-2); }
 .pf-card__media img{ width:100%; height:100%; object-fit:cover; display:block; }
 .pf-card__in{ padding:clamp(18px,1.5vw,24px); display:flex; flex-direction:column; flex:1 1 auto; }
 /* escopado no pai: a regra descendente ".pai p" tem especificidade
@@ -89,6 +90,20 @@
 .pf-card__in p{
   font-size:14px; line-height:1.68; color:rgba(60,63,46,.78); margin-top:12px;
 }
+/* CTA do card — o traço usa scaleX, não width: animar width dentro de um
+   flex faz a linha re-quebrar e o hover entra em loop */
+.pf-card__in .pf-card__go{
+  display:inline-flex; align-items:center; gap:9px;
+  margin-top:auto; padding-top:clamp(16px,1.4vw,20px);
+  font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--dark);
+}
+.pf-card__go i{
+  display:block; width:38px; height:1px; background:currentColor;
+  transform:scaleX(.58); transform-origin:left center;
+  transition:transform .35s var(--ease);
+}
+.pf-card__go:hover i{ transform:scaleX(1); }
 
 /* ---------------------------------------------------------
    BLOCO 3 — Depoimentos (faixa escura)
@@ -100,11 +115,28 @@
   margin-bottom:clamp(30px,3.2vw,52px);
 }
 .pf-depo__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.2vw,36px); }
-.pf-quote{
+/* escopado em .pf-depo (0-2-0) porque .reveal.is-in também é 0-2-0 e
+   sobrescrevia a transição do hover, deixando o efeito seco.
+   A transição de opacidade fica na lista para a entrada não perder o fade. */
+.pf-depo .pf-quote{
   border:1px solid rgba(246,243,232,.16); border-radius:14px;
   padding:clamp(24px,2.3vw,40px);
   display:flex; flex-direction:column;
+  background:rgba(246,243,232,.02);
+  transition:opacity .75s var(--ease), transform .5s var(--ease),
+             background .45s var(--ease), border-color .45s var(--ease),
+             box-shadow .45s var(--ease);
 }
+.pf-depo .pf-quote:hover{
+  transform:translateY(-4px);
+  background:rgba(246,243,232,.06);
+  border-color:rgba(246,243,232,.34);
+  box-shadow:0 22px 50px -26px rgba(15,15,16,.7);
+}
+.pf-quote__mark,
+.pf-quote__av{ transition:color .45s var(--ease), background .45s var(--ease); }
+.pf-depo .pf-quote:hover .pf-quote__mark{ color:rgba(246,243,232,.6); }
+.pf-depo .pf-quote:hover .pf-quote__av{ background:rgba(246,243,232,.24); }
 .pf-quote__mark{
   font-family:var(--font-head); font-weight:300; font-size:60px; line-height:.6;
   color:rgba(246,243,232,.34); margin-bottom:18px;

@@ -229,6 +229,10 @@ function page(p) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(p.nome)} — Imperial Urbanismo</title>
 <meta name="description" content="${esc(p.descricao.slice(0, 155))}">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#3C3F2E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -369,7 +373,7 @@ ${hasObra ? `
     <div class="hcta__bg"><img src="assets/img/home/cta-bg.jpg" alt="" aria-hidden="true" loading="lazy"></div>
     <div class="hcta__in" data-stagger>
       <p class="hcta__eyebrow reveal"><i></i><span>Fale com a Imperial</span><i></i></p>
-      <h2 class="reveal">O próximo passo começa com uma boa conversa.</h2>
+      <h2 class="reveal">O próximo passo<br>começa com uma<br>boa conversa.</h2>
       <p class="reveal">Nossa equipe está pronta para apresentar o ${esc(p.nome)}, esclarecer dúvidas e ajudar você a encontrar a oportunidade alinhada ao seu momento.</p>
       <div class="ctafinal__btns reveal">
         <a class="btn btn--cream" href="https://wa.me/${WA}?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20${encodeURIComponent(p.nome)}." target="_blank" rel="noopener">Falar pelo WhatsApp ${IC.arrowR}</a>

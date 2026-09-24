@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Home — Imperial Urbanismo</title>
 <meta name="description" content="A Imperial Urbanismo desenvolve empreendimentos planejados para acompanhar o crescimento da cidade e a evolução de quem vive nela.">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#3C3F2E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,12 +41,17 @@
 <!-- ============ BLOCO 1 — FAIXA ESCURA + CARD ============ -->
 <section class="hhero">
   <div class="hhero__card">
-    <div class="hhero__bg"><img src="assets/img/home/hero.jpg" alt="Empreendimento Imperial Urbanismo em Rio Verde" fetchpriority="high"></div>
+    <div class="hhero__bg">
+      <picture>
+        <source media="(max-width:640px)" srcset="assets/img/home/hero-mobile.jpg">
+        <img src="assets/img/home/hero.jpg" alt="Empreendimento Imperial Urbanismo em Rio Verde" fetchpriority="high">
+      </picture>
+    </div>
     <div class="hhero__grad"></div>
 
     <div class="hhero__in" data-stagger>
       <h1 class="reveal">Construímos espaços<br>que <strong>valorizam histórias.</strong></h1>
-      <p class="hhero__lead reveal">A <strong>Imperial Urbanismo</strong> desenvolve empreendimentos planejados para acompanhar o crescimento da cidade e a evolução de quem vive nela: com clareza, estrutura e compromisso em cada detalhe.</p>
+      <p class="hhero__lead reveal">A <strong>Imperial Urbanismo</strong> desenvolve<br class="br-mob">empreendimentos planejados para<br class="br-mob">acompanhar o crescimento da<br class="br-mob">cidade e a evolução de quem vive<br class="br-mob">nela: com clareza, estrutura e<br class="br-mob">compromisso em cada detalhe.</p>
       <p class="hhero__tag reveal">Impulsionando valor, construindo legado.</p>
       <div class="hhero__btns reveal">
         <a class="btn btn--dark" href="#empreendimentos">Ver empreendimentos
@@ -239,7 +248,7 @@
     <div class="hcta__bg"><img src="assets/img/home/cta-bg.jpg" alt="" aria-hidden="true" loading="lazy"></div>
     <div class="hcta__in" data-stagger>
       <p class="hcta__eyebrow reveal"><i></i><span>Fale com a Imperial</span><i></i></p>
-      <h2 class="reveal">O próximo passo começa com uma boa conversa.</h2>
+      <h2 class="reveal">O próximo passo<br>começa com uma<br>boa conversa.</h2>
       <p class="reveal">Nossa equipe está pronta para apresentar os empreendimentos, esclarecer dúvidas e ajudar você a encontrar oportunidades alinhadas ao seu momento e aos seus objetivos.</p>
       <div class="ctafinal__btns reveal">
         <a class="btn btn--cream" href="https://wa.me/5564999943916?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Imperial%20Urbanismo." target="_blank" rel="noopener">Falar pelo WhatsApp
