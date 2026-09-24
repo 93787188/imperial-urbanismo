@@ -64,3 +64,11 @@ RewriteRule ^(.+?)/?$ $1.html [L]
 
 # Página de erro — criar 404.html antes de ativar:
 # ErrorDocument 404 /404.html
+
+# --- Bloqueio de arquivos internos ---------
+# Defesa extra: mesmo com o repo fora do webroot,
+# nada de .git, .yml ou scripts de build servidos na web.
+<FilesMatch "^\.(git|gitignore|cpanel\.yml)|\.(ps1|mjs)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 /\.git

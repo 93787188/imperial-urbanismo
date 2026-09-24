@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    # ATENCAO: troque SEU_USUARIO pelo usuario do cPanel.
+    # Aparece no canto superior direito do painel, em "Conta".
+    - export DEPLOYPATH=/home/SEU_USUARIO/public_html
+    # Copia o site para o webroot. Os --exclude tiram do ar o que e
+    # so de desenvolvimento. SEM --delete de proposito: nao apaga
+    # nada que ja esteja no servidor, entao o primeiro deploy nao tem
+    # janela de site fora do ar. A limpeza dos arquivos antigos e
+    # manual depois, pelo Gerenciador de Arquivos.
+    - /usr/bin/rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='.claude' --exclude='*.ps1' --exclude='build-pages.mjs' --exclude='server.mjs' --exclude='.well-known' --exclude='cgi-bin' ./ $DEPLOYPATH/
