@@ -11,7 +11,7 @@ deployment:
     - /bin/cp -f index.html $DEPLOYPATH/
     - /bin/cp -f quem-somos.html historia.html empreendimentos.html $DEPLOYPATH/
     - /bin/cp -f portfolio.html acompanhamento-de-obras.html $DEPLOYPATH/
-    - /bin/cp -f trabalhe-conosco.html contato.html $DEPLOYPATH/
+    - /bin/cp -f trabalhe-conosco.html contato.html politica-de-privacidade.html $DEPLOYPATH/
     - /bin/cp -f impulsi-the-one.html impulsi-interlagos.html omni-espelho-dagua.html $DEPLOYPATH/
     - /bin/cp -f site.webmanifest $DEPLOYPATH/
     - /bin/cp -f .htaccess $DEPLOYPATH/

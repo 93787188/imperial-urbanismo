@@ -298,7 +298,7 @@ function page(p) {
           <div class="field"><input type="tel" id="t-${p.proj}" placeholder=" " required><label for="t-${p.proj}">Telefone</label></div>
           <label class="check">
             <input type="checkbox" required>
-            <span>Aceito receber contato da Imperial Urbanismo de acordo com a política de privacidade.</span>
+            <span>Aceito receber contato da Imperial Urbanismo de acordo com a <a href="/politica-de-privacidade" target="_blank" rel="noopener">política de privacidade</a>.</span>
           </label>
           <button class="btn btn--dark btn--wide" type="submit">Enviar ${IC.arrowR}</button>
           <p class="formcard__note">Retorno em até 1 dia útil, em horário comercial.</p>
@@ -414,7 +414,7 @@ ${hasObra ? `
     </div>
     <div class="hfoot__bar">
       <span>© 2026 Imperial Urbanismo. Rio Verde, GO.</span>
-      <a href="#">Política de Privacidade</a>
+      <a href="/politica-de-privacidade">Política de Privacidade</a>
     </div>
   </div>
   <div class="hfoot__rule"></div>
