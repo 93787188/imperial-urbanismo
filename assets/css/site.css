@@ -725,3 +725,8 @@ h1,h2,h3{ font-family:var(--font-head); font-weight:300; letter-spacing:-.03em; 
   html{ scroll-behavior:auto; }
   .hero__bg img{ animation:none; }
 }
+
+/* erro de envio dos formulários (o sucesso usa o estado .is-sent) */
+.form-erro{ margin-top:12px; font-size:14px; line-height:1.45; color:#8A3A2A; background:rgba(138,58,42,.08); border-radius:8px; padding:10px 12px; }
+.ct-card .form-erro{ color:#F6D9CF; background:rgba(246,217,207,.12); }
+button[disabled]{ opacity:.6; cursor:wait; }

@@ -321,13 +321,71 @@
   })();
 
   /* ---------------------------------------------------------
-     NEWSLETTER da Home — demo (não envia)
+     ENVIO DOS FORMULÁRIOS
+     Todos vão para /enviar.php, que guarda uma cópia e manda o
+     aviso para contato@. Os campos não têm "name": o tipo de cada
+     campo diz o que ele é (texto = nome, email, tel, select =
+     assunto, textarea = mensagem, checkbox = aceite).
      --------------------------------------------------------- */
-  $$('.hnews__form').forEach(function (form) {
+  var abertura = Date.now();
+  function prepara(form) {
+    // campo invisível: pessoa não vê, robô preenche
+    var isca = document.createElement('input');
+    isca.type = 'text'; isca.name = 'website'; isca.tabIndex = -1; isca.autocomplete = 'off';
+    isca.setAttribute('aria-hidden', 'true');
+    isca.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+    form.appendChild(isca);
+  }
+  function coleta(form, tipo) {
+    var q = function (s) { var el = form.querySelector(s); return el ? el.value.trim() : ''; };
+    var h1 = document.querySelector('h1');
+    return {
+      tipo: tipo,
+      nome: q('input[type="text"]:not([name="website"])'),
+      email: q('input[type="email"]'),
+      telefone: q('input[type="tel"]'),
+      assunto: q('select'),
+      mensagem: q('textarea'),
+      aceite: !!(form.querySelector('input[type="checkbox"]') || {}).checked,
+      empreendimento: tipo === 'interesse' && h1 ? h1.textContent.trim() : '',
+      pagina: location.pathname,
+      website: q('input[name="website"]'),
+      t: Date.now() - abertura
+    };
+  }
+  function avisa(form, msg) {
+    var p = form.querySelector('.form-erro');
+    if (!p) { p = document.createElement('p'); p.className = 'form-erro'; p.setAttribute('role', 'alert'); form.appendChild(p); }
+    p.textContent = msg; p.hidden = !msg;
+  }
+  function envia(form, tipo, ok) {
+    prepara(form);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      form.closest('.hnews').classList.add('is-sent');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('button[type="submit"]');
+      var rotulo = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
+      avisa(form, '');
+      fetch('/enviar.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(coleta(form, tipo)) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }).then(function (j) { return { status: r.status, j: j }; }); })
+        .then(function (res) {
+          if (res.j && res.j.ok) { ok(); return; }
+          throw res;
+        })
+        .catch(function (res) {
+          if (btn) { btn.disabled = false; btn.innerHTML = rotulo; }
+          var erro = res && res.j && res.j.erro;
+          avisa(form, erro === 'campos' ? 'Confira o nome e o e-mail e tente de novo.'
+            : erro === 'limite' ? 'Muitos envios seguidos. Aguarde alguns minutos ou fale pelo WhatsApp.'
+            : 'Não foi possível enviar agora. Tente de novo ou fale com a gente pelo WhatsApp.');
+        });
     });
+  }
+
+  /* NEWSLETTER (rodapé das páginas) */
+  $$('.hnews__form').forEach(function (form) {
+    envia(form, 'newsletter', function () { form.closest('.hnews').classList.add('is-sent'); });
   });
 
   /* ---------------------------------------------------------
@@ -480,12 +538,10 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     FORMULÁRIO — demo (não envia)
-     --------------------------------------------------------- */
+  /* FORMULÁRIOS em cartão: Contato e "Cadastre-se" dos empreendimentos */
   $$('.formcard form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    var tipo = form.querySelector('textarea') ? 'contato' : 'interesse';
+    envia(form, tipo, function () {
       var card = form.closest('.formcard');
       card.classList.add('is-sent');
       form.style.display = 'none';
